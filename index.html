@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gerson Correia · Delivery Consulting</title>
+<meta name="description" content="Gerson Correia, delivery consultant for remote software teams. Delivery Health Check, Fractional Delivery Lead and Status on Autopilot.">
+<link rel="canonical" href="https://gersoncorreia.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d9480f'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' text-anchor='middle' fill='white'%3EGC%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gersoncorreia.com/">
+<meta property="og:title" content="Gerson Correia · Delivery Consulting">
+<meta property="og:description" content="Gerson Correia, delivery consultant for remote software teams. Delivery Health Check, Fractional Delivery Lead and Status on Autopilot.">
+<meta property="og:image" content="https://gersoncorreia.com/portrait.jpg">
+<meta name="twitter:card" content="summary">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single column, 1120px max; a cumulative flow diagram carries the hero; sections separated by space, not boxes. */
+:root {
+  --bg: #ffffff;
+  --surface: #f6f8fa;
+  --ink: #0f1b2b;
+  --muted: #586273;
+  --line: #e3e8ee;
+  --grid: rgba(15, 27, 43, 0.05);
+  --accent: #d9480f;
+  --accent-ink: #ffffff;
+  --band-done: #e8590c;
+  --band-wip: #ffc08a;
+  --band-wait: #e9edf2;
+  --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --step--1: 0.875rem; --step-0: 1.0625rem; --step-1: 1.3rem; --step-2: 1.75rem; --step-3: clamp(2.2rem, 5.2vw, 3.6rem);
+  --radius: 10px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: var(--step-0); line-height: 1.6; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; text-wrap: balance; margin: 0; }
+h2 { font-size: var(--step-2); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.lede { color: var(--muted); max-width: 62ch; }
+section { padding-block: 72px; border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: 10px; margin-bottom: 36px; }
+
+/* Top bar */
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 22px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; }
+.mono-mark { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; display: block; }
+.portrait { margin: 0 0 24px; display: flex; gap: 18px; align-items: center; }
+.portrait img { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--line); flex: none; }
+.portrait figcaption { font-size: 0.92rem; color: var(--muted); }
+.portrait figcaption b { display: block; color: var(--ink); font-family: var(--font-display); font-size: 1.15rem; }
+.nav { display: flex; gap: 20px; flex-wrap: wrap; font-size: var(--step--1); }
+.nav a { color: var(--muted); text-decoration: none; }
+.nav a:hover { color: var(--ink); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 0.98rem; text-decoration: none; border: 1.5px solid var(--accent); cursor: pointer; font-family: var(--font-body); transition: transform .15s ease; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-ghost { background: transparent; color: var(--accent); }
+.btn:hover { transform: translateY(-1px); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; padding-block: 48px 72px; position: relative; isolation: isolate; }
+.hero::before { content: ""; position: absolute; inset: 0 -20px; z-index: -1; background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 28px 28px; -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent); mask-image: linear-gradient(180deg, #000 55%, transparent); }
+.cfd { box-shadow: 0 12px 32px -18px rgba(15, 27, 43, 0.25); }
+.hero > * { min-width: 0; }
+.hero h1 { font-size: var(--step-3); font-weight: 800; letter-spacing: -0.025em; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lede { margin-top: 20px; font-size: 1.12rem; }
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.cfd { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 18px 12px; }
+.cfd svg { width: 100%; height: auto; display: block; }
+.cfd-legend { display: flex; gap: 16px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 0.74rem; color: var(--muted); margin-top: 8px; }
+.cfd-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.cfd-caption { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+/* Proof strip */
+.proof { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.proof div { padding: 22px 16px; border-left: 1px solid var(--line); min-width: 0; }
+.proof div:first-child { border-left: 0; padding-left: 0; }
+.proof b { display: block; font-family: var(--font-display); font-size: 1.7rem; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.proof span { font-size: var(--step--1); color: var(--muted); }
+.proof b::before { content: ""; display: block; width: 18px; height: 3px; background: var(--accent); margin-bottom: 10px; border-radius: 2px; }
+
+/* Problems */
+.problems { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 40px; list-style: none; padding: 0; margin: 0; }
+.problems li { padding: 16px 0 16px 28px; border-bottom: 1px solid var(--line); position: relative; }
+.problems li::before { content: ""; position: absolute; left: 0; top: 25px; width: 12px; height: 12px; border-radius: 3px; background: var(--band-wip); }
+
+/* Offers */
+.offers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.offer { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.offer.featured { border: 2px solid var(--accent); }
+.offer .meta { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip { font-family: var(--font-mono); font-size: 0.74rem; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.offer ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 0.97rem; }
+.offer .for { font-size: 0.92rem; color: var(--muted); margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--line); }
+.addon { margin-top: 20px; color: var(--muted); font-size: 0.97rem; }
+.addon b { color: var(--ink); }
+
+/* Process */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: s; list-style: none; padding: 0; margin: 0; }
+.steps li { padding: 0 20px 0 0; min-width: 0; }
+.steps .n { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.steps .n::after { content: ""; flex: 1; height: 2px; background: linear-gradient(90deg, var(--accent), var(--line)); }
+.steps li:last-child .n::after { background: var(--line); }
+.steps h3 { margin-bottom: 8px; }
+.steps p { font-size: 0.95rem; color: var(--muted); }
+
+/* Cases */
+.cases { display: grid; gap: 0; }
+.case { display: grid; grid-template-columns: 220px 1fr 1fr 1fr; gap: 28px; padding-block: 28px; border-bottom: 1px solid var(--line); }
+.case > * { min-width: 0; }
+.case:first-child { border-top: 1px solid var(--line); }
+.case .who b { display: block; font-family: var(--font-display); font-size: 1.1rem; }
+.case .who span { font-size: 0.88rem; color: var(--muted); }
+.case p { font-size: 0.96rem; }
+.case .result { font-weight: 600; }
+
+/* Tooling */
+.tools { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 20px; }
+.tool { padding: 24px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); display: grid; gap: 10px; align-content: start; min-width: 0; }
+.tool code { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); overflow-wrap: anywhere; }
+
+/* Quotes */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.quote { margin: 0; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.quote blockquote { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 1.15rem; line-height: 1.4; }
+.quote figcaption { font-size: 0.9rem; color: var(--muted); border-top: 2px solid var(--accent); padding-top: 12px; margin-top: auto; }
+.quote figcaption b { color: var(--ink); display: block; }
+
+/* About */
+.about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; }
+.about > * { min-width: 0; }
+.about p + p { margin-top: 14px; }
+.facts { display: grid; gap: 0; margin: 0; }
+.facts div { display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: 1fr 1.25fr; gap: 48px; }
+.contact > * { min-width: 0; }
+.routes { display: grid; gap: 10px; margin-top: 24px; }
+.route { text-align: left; background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 16px 18px; cursor: pointer; color: var(--ink); font: inherit; display: grid; gap: 2px; }
+.route b { font-family: var(--font-display); font-size: 1.05rem; }
+.route span { font-size: 0.9rem; color: var(--muted); }
+.route[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 4px 0 0 var(--accent); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: grid; gap: 16px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 0.88rem; font-weight: 600; }
+.field input, .field select, .field textarea { font: inherit; font-size: 0.96rem; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); width: 100%; }
+.field textarea { min-height: 90px; resize: vertical; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.draft { font-family: var(--font-mono); font-size: 0.82rem; white-space: pre-wrap; background: var(--bg); border: 1px dashed var(--line); border-radius: 8px; padding: 14px; min-height: 120px; overflow-wrap: anywhere; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.email { font-family: var(--font-mono); font-size: 0.92rem; user-select: all; }
+.status { font-size: 0.85rem; color: var(--muted); min-height: 1.2em; }
+.tz { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 24px; font-variant-numeric: tabular-nums; }
+.tz th, .tz td { text-align: left; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.tz th { font-weight: 500; color: var(--muted); }
+
+footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size: 0.88rem; color: var(--muted); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 920px) {
+  .hero, .about, .contact { grid-template-columns: 1fr; }
+  .offers, .quotes, .tools { grid-template-columns: 1fr; }
+  .proof { grid-template-columns: repeat(2, 1fr); }
+  .proof div { border-left: 0; padding-left: 0; border-bottom: 1px solid var(--line); }
+  .steps { grid-template-columns: 1fr 1fr; gap: 28px 0; }
+  .case { grid-template-columns: 1fr; gap: 10px; }
+}
+@media (max-width: 560px) {
+  .problems, .steps, .two { grid-template-columns: 1fr; }
+  .nav { display: none; }
+  section { padding-block: 52px; }
+  .facts div { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" id="top"><img class="mono-mark" src="portrait.jpg" alt="" width="38" height="38">Gerson Correia</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#offers">Services</a><a href="#how">How I work</a><a href="#cases">Results</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <p class="label">Delivery consultant · remote · US, Europe, LATAM</p>
+      <h1 style="margin-top:14px">Software delivery your leadership can <em>predict</em>.</h1>
+      <p class="lede">I find where work really waits, fix the flow, and automate the status reporting that eats your managers' week. Former engineer, 10+ years leading delivery, and I build the tooling myself.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact" data-route="delivery">Book an intro call</a>
+        <a class="btn btn-ghost" href="#offers">See the services</a>
+      </div>
+    </div>
+    <figure class="cfd" style="margin:0" aria-labelledby="cfd-cap">
+      <svg id="cfd" viewBox="0 0 520 300" role="img" aria-label="Cumulative flow diagram: work in progress grows for eight weeks, then narrows after the flow is fixed while finished work rises steadily."></svg>
+      <div class="cfd-legend"><span><i style="background:var(--band-wait)"></i>Waiting</span><span><i style="background:var(--band-wip)"></i>In progress</span><span><i style="background:var(--band-done)"></i>Done</span></div>
+      <figcaption id="cfd-cap" class="cfd-caption">Illustrative cumulative flow diagram. When work in progress stops growing, delivery dates become something you can forecast.</figcaption>
+    </figure>
+  </div>
+
+  <div class="proof" aria-label="Track record">
+    <div><b>10+</b><span>years leading software delivery</span></div>
+    <div><b>+25%</b><span>delivery capacity across 4 squads</span></div>
+    <div><b>25+</b><span>projects governed in one portfolio</span></div>
+    <div><b>3</b><span>regions served remotely: US, Europe, LATAM</span></div>
+    <div><b>PSM I · KMP I</b><span>Scrum and Kanban certified</span></div>
+  </div>
+
+  <section aria-labelledby="pain">
+    <div class="sec-head">
+      <p class="label">Sound familiar?</p>
+      <h2 id="pain">The signs I'm usually called in for</h2>
+    </div>
+    <ul class="problems">
+      <li>Dates keep slipping, and nobody can say where the time goes.</li>
+      <li>Everyone is busy, yet little reaches "done" each week.</li>
+      <li>Managers spend hours every week turning Slack threads into status reports.</li>
+      <li>The documented process and the real one stopped matching a long time ago.</li>
+    </ul>
+  </section>
+
+  <section id="offers" aria-labelledby="offers-h">
+    <div class="sec-head">
+      <p class="label">Services</p>
+      <h2 id="offers-h">Three ways to work together</h2>
+      <p class="lede">Fixed scope, clear outputs, fully remote. Most clients start with the Health Check. Pricing is scoped on our first call.</p>
+    </div>
+    <div class="offers">
+      <article class="offer featured">
+        <div class="meta"><span class="chip">About 2 weeks</span><span class="chip">Fixed scope</span><span class="chip">Start here</span></div>
+        <h3>Delivery Health Check</h3>
+        <p>A fast diagnosis of how work actually flows through your team, and what to change first.</p>
+        <ul>
+          <li>Map of the real workflow, from request to release</li>
+          <li>Baseline metrics: cycle time, throughput, work in progress</li>
+          <li>Where work waits, and why</li>
+          <li>A 30-day action plan and an executive readout</li>
+        </ul>
+        <p class="for">For: leaders who need to know why delivery is slow before deciding what to fix.</p>
+      </article>
+      <article class="offer">
+        <div class="meta"><span class="chip">Monthly</span><span class="chip">Part-time</span></div>
+        <h3>Fractional Delivery Lead</h3>
+        <p>I run your delivery system part-time until your team can run it without me.</p>
+        <ul>
+          <li>Scrum or Kanban cadences that people keep</li>
+          <li>A metrics board the team reads and acts on</li>
+          <li>Stakeholder and executive reporting</li>
+          <li>Coaching for your leads, then a planned hand-off</li>
+        </ul>
+        <p class="for">For: growing teams that need delivery leadership before they can justify a full-time hire.</p>
+      </article>
+      <article class="offer">
+        <div class="meta"><span class="chip">Fixed scope</span><span class="chip">AI tooling</span></div>
+        <h3>Status on Autopilot</h3>
+        <p>Stop writing status reports by hand. Your tools write them.</p>
+        <ul>
+          <li>The real process mapped in BPMN, handoffs included</li>
+          <li>Status updates flowing from Slack into Asana or Jira</li>
+          <li>A live executive readout instead of a weekly document</li>
+          <li>Built with Claude Code and MCP, documented for your team</li>
+        </ul>
+        <p class="for">For: teams where updates live in chat and tracking lives somewhere else.</p>
+      </article>
+    </div>
+    <p class="addon"><b>Add-on: Scrum and Kanban training.</b> Hands-on sessions for squads, built around your own board and your own data.</p>
+  </section>
+
+  <section id="how" aria-labelledby="how-h">
+    <div class="sec-head">
+      <p class="label">How I work</p>
+      <h2 id="how-h">Four steps, in this order</h2>
+    </div>
+    <ol class="steps">
+      <li><div class="n">01</div><h3>Diagnose</h3><p>Sessions with the people who own the work. I map what actually happens, not what the process document says.</p></li>
+      <li><div class="n">02</div><h3>Make flow visible</h3><p>One board and a few metrics everyone can read: cycle time, throughput, work in progress.</p></li>
+      <li><div class="n">03</div><h3>Stabilise</h3><p>Limit work in progress, fix the worst handoffs, automate the status relay.</p></li>
+      <li><div class="n">04</div><h3>Hand off</h3><p>Your team owns the system. I leave the cadences, the dashboards and the documentation behind.</p></li>
+    </ol>
+  </section>
+
+  <section id="cases" aria-labelledby="cases-h">
+    <div class="sec-head">
+      <p class="label">Results</p>
+      <h2 id="cases-h">Selected work</h2>
+    </div>
+    <div class="cases">
+      <article class="case">
+        <div class="who"><b>Auvo Tecnologia</b><span>Cloud ERP · Development Manager · 2020–2022</span></div>
+        <p><span class="label">Problem</span><br>Four squads with no shared view of flow. Capacity debates were settled by opinion.</p>
+        <p><span class="label">What I did</span><br>Built the company's first Lean metrics board in Azure DevOps, trained all four squads to use it, and ran the rollout of a core financial module.</p>
+        <p class="result"><span class="label">Result</span><br>+25% delivery capacity without adding headcount. The financial module went live without disrupting users.</p>
+      </article>
+      <article class="case">
+        <div class="who"><b>Liberdade Médica Educação</b><span>Education · Head of Portfolio (PMO) · 2026</span></div>
+        <p><span class="label">Problem</span><br>25+ active projects competing for approval and capacity, with business cases often sent back.</p>
+        <p><span class="label">What I did</span><br>Built a maturity scorecard for business cases and an approval process with pre-alignment and sign-off gates.</p>
+        <p class="result"><span class="label">Result</span><br>Less rework at approval, a shorter approval cycle, and live dashboards for directors.</p>
+      </article>
+      <article class="case">
+        <div class="who"><b>Series B AI company</b><span>Via BairesDev · Process Intelligence · 2026</span></div>
+        <p><span class="label">Problem</span><br>The tracked state of work lived in Asana. The real state lived in Slack threads, retyped by hand every cycle.</p>
+        <p><span class="label">What I did</span><br>Mapped the cross-team lifecycle in BPMN with directors and leads, and built a sync agent that moves Slack updates onto the right task.</p>
+        <p class="result"><span class="label">Result</span><br>Status reporting became a rebuild instead of a rewrite, on a live executive readout.</p>
+      </article>
+      <article class="case">
+        <div class="who"><b>Softensity</b><span>Remote implementation projects · Agile PM · 2022–2025</span></div>
+        <p><span class="label">Problem</span><br>Client projects across US, European and LATAM time zones needing one accountable delivery contact.</p>
+        <p><span class="label">What I did</span><br>Ran Scrum and Kanban end to end, designed Jira workflows and automations, and sent weekly executive reports.</p>
+        <p class="result"><span class="label">Result</span><br>Primary contact for client sponsors over nearly three years of remote delivery.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="tools-h">
+    <div class="sec-head">
+      <p class="label">Tooling I build</p>
+      <h2 id="tools-h">I automate the work around the work</h2>
+      <p class="lede">Most delivery leads report on the problem. I also build the tools that remove it.</p>
+    </div>
+    <div class="tools">
+      <article class="tool">
+        <span class="chip" style="justify-self:start">Open source</span>
+        <h3>Slack-to-Asana sync</h3>
+        <p>Reads thread replies in Slack and posts them as comments, completions and reassignments on the right Asana task.</p>
+        <a href="https://github.com/gersoncorreias/claude-slack-to-asana">View on GitHub</a>
+        <code>github.com/gersoncorreias/claude-slack-to-asana</code>
+      </article>
+      <article class="tool">
+        <h3>Coordination-cost analyzer</h3>
+        <p>Turns the relay work between teams into hours and cost, so leaders see what handoffs really cost them.</p>
+      </article>
+      <article class="tool">
+        <h3>BPMN toolchain</h3>
+        <p>Generates, reads and validates BPMN 2.0 process diagrams, so process maps stay accurate as the process changes.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="quotes-h">
+    <div class="sec-head">
+      <p class="label">What people say</p>
+      <h2 id="quotes-h">From the people I've worked with</h2>
+    </div>
+    <div class="quotes">
+      <figure class="quote">
+        <blockquote>"He is a very outstanding professional in the area of project management… excellent communication and proactivity with the team makes him a natural leader."</blockquote>
+        <figcaption><b>Tech Director</b></figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>"He set up several workstreams to deliver the financial epic within a single sprint. The system went live with an entire new module, built MVP-first, without disrupting users."</blockquote>
+        <figcaption><b>Senior Software Engineer</b></figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>"Gerson has a strong command of agile practices and is always looking for ways to improve processes and streamline workflows."</blockquote>
+        <figcaption><b>Product Manager</b></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-h">
+    <div class="about">
+      <div>
+        <p class="label">About</p>
+        <h2 id="about-h" style="margin:10px 0 20px">An engineer who became a delivery leader</h2>
+        <p>I started as a C# developer in 2012, so I talk with engineers as a peer, not as someone collecting status. Since 2017 I've led delivery as Scrum Master, project manager, development manager and PMO head, in Brazil and for remote clients across the US, Europe and LATAM.</p>
+        <p>My work sits where people, process and tooling meet. I make the real flow of work visible, change the system so it improves, and automate the reporting so leaders see the truth without asking for it. I also published research on how organisational culture shapes agile adoption.</p>
+      </div>
+      <div>
+        <figure class="portrait"><img src="portrait.jpg" alt="Portrait of Gerson Correia" width="128" height="128"><figcaption><b>Gerson Correia</b>Delivery consultant · Goiânia, Brazil</figcaption></figure>
+      <dl class="facts">
+        <div><dt>Based in</dt><dd>Goiânia, Brazil (UTC−3), working remotely</dd></div>
+        <div><dt>Languages</dt><dd>English (C1) · Portuguese (native)</dd></div>
+        <div><dt>Certifications</dt><dd>Professional Scrum Master I · Kanban System Design (KMP I) · Management 3.0 · Anthropic: Agent Skills, MCP, Claude API</dd></div>
+        <div><dt>Education</dt><dd>MBA, Leadership, Innovation and Management 3.0 (PUCRS) · BSc Information Systems (UFG)</dd></div>
+        <div><dt>Tools</dt><dd>Jira · Azure DevOps · Asana · Monday · BPMN · Claude Code and MCP</dd></div>
+      </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="contact">
+      <div>
+        <p class="label">Contact</p>
+        <h2 id="contact-h" style="margin:10px 0 14px">What brings you here?</h2>
+        <p class="lede">Pick the closest option. I'll help you write a short message so I can reply with something useful. I answer within one business day.</p>
+        <div class="routes" role="group" aria-label="Reason for contact">
+          <button class="route" type="button" id="route-delivery" data-route="delivery" aria-pressed="true"><b>I need help with delivery</b><span>Book a 30-minute intro call</span></button>
+          <button class="route" type="button" id="route-hiring" data-route="hiring" aria-pressed="false"><b>I'm hiring for a role</b><span>Delivery Manager, Project Manager, Scrum Master</span></button>
+          <button class="route" type="button" id="route-connect" data-route="connect" aria-pressed="false"><b>Let's connect</b><span>LinkedIn is easiest</span></button>
+        </div>
+        <table class="tz" aria-label="My working hours in other time zones">
+          <thead><tr><th scope="col">My working hours in</th><th scope="col">Local time</th></tr></thead>
+          <tbody id="tz-body"></tbody>
+        </table>
+      </div>
+
+      <div class="panel" id="panel" aria-live="polite">
+        <form id="f-delivery" data-form="delivery" novalidate>
+          <div class="field"><label for="d-name">Your name and company</label><input id="d-name" name="name" placeholder="Ana Silva, Acme Corp"></div>
+          <div class="two" style="margin-top:14px">
+            <div class="field"><label for="d-size">Team size</label>
+              <select id="d-size" name="size"><option value="">Choose…</option><option>Under 10 people</option><option>10–30 people</option><option>30–100 people</option><option>Over 100 people</option></select></div>
+            <div class="field"><label for="d-time">When do you want to start?</label>
+              <select id="d-time" name="time"><option value="">Choose…</option><option>As soon as possible</option><option>Within a month</option><option>In the next quarter</option><option>Just exploring</option></select></div>
+          </div>
+          <div class="field" style="margin-top:14px"><label for="d-problem">What is the main problem?</label><textarea id="d-problem" name="problem" placeholder="Our releases slip every sprint and we can't see why."></textarea></div>
+        </form>
+        <form id="f-hiring" data-form="hiring" novalidate hidden>
+          <div class="field"><label for="h-name">Your name and company</label><input id="h-name" name="name" placeholder="Ana Silva, Acme Corp"></div>
+          <div class="field" style="margin-top:14px"><label for="h-role">Role</label><input id="h-role" name="role" placeholder="Senior Delivery Manager, remote"></div>
+          <div class="field" style="margin-top:14px"><label for="h-link">Link to the job description (optional)</label><input id="h-link" name="link" placeholder="https://"></div>
+        </form>
+        <div data-form="connect" hidden>
+          <p>Send me a connection request with a line about what you work on.</p>
+          <p style="margin-top:14px"><a class="btn btn-primary" href="https://www.linkedin.com/in/gerson-correia">Open my LinkedIn profile</a></p>
+        </div>
+
+        <div id="compose">
+          <p class="label" style="margin-bottom:8px">Your message</p>
+          <div class="draft" id="draft"></div>
+          <p style="margin-top:14px;font-size:0.92rem">Send it to <span class="email" id="email">gersoncorreia@outlook.com</span></p>
+          <div class="row" style="margin-top:12px">
+            <button class="btn btn-primary" type="button" id="copy-msg">Copy message</button>
+            <button class="btn btn-ghost" type="button" id="copy-email">Copy email address</button>
+            <a class="btn btn-ghost" id="mailto" href="mailto:gersoncorreia@outlook.com">Open in email app</a>
+          </div>
+          <p class="status" id="status" role="status"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Gerson Correia · Delivery consulting for remote software teams</span>
+    <span><a href="https://www.linkedin.com/in/gerson-correia">LinkedIn</a> · <a href="https://github.com/gersoncorreias">GitHub</a></span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  // Cumulative flow diagram: illustrative, 20 weeks. Arrivals steady; the flow is fixed at week 8.
+  var svg = document.getElementById('cfd');
+  var W = 520, H = 300, padL = 34, padR = 12, padT = 14, padB = 30, weeks = 20;
+  var arrived = [], started = [], done = [];
+  var a = 0, s = 0, d = 0;
+  for (var w = 0; w <= weeks; w++) {
+    arrived.push(a); started.push(s); done.push(d);
+    a += w < 8 ? 6 : 5.2;
+    s += w < 8 ? 5.5 : 5;
+    d += w < 8 ? 2.2 : (s - d > 10 ? 7 : 5);
+    if (d > s) d = s;
+  }
+  var max = arrived[weeks];
+  function x(i) { return padL + (W - padL - padR) * i / weeks; }
+  function y(v) { return padT + (H - padT - padB) * (1 - v / max); }
+  function area(top, bottom) {
+    var p = 'M' + x(0) + ',' + y(top[0]);
+    for (var i = 1; i <= weeks; i++) p += 'L' + x(i).toFixed(1) + ',' + y(top[i]).toFixed(1);
+    for (var j = weeks; j >= 0; j--) p += 'L' + x(j).toFixed(1) + ',' + y(bottom[j]).toFixed(1);
+    return p + 'Z';
+  }
+  var zero = arrived.map(function () { return 0; });
+  var ns = 'http://www.w3.org/2000/svg', out = '';
+  out += '<path d="' + area(arrived, started) + '" fill="var(--band-wait)"/>';
+  out += '<path d="' + area(started, done) + '" fill="var(--band-wip)"/>';
+  out += '<path d="' + area(done, zero) + '" fill="var(--band-done)"/>';
+  out += '<line x1="' + padL + '" y1="' + (H - padB) + '" x2="' + (W - padR) + '" y2="' + (H - padB) + '" stroke="var(--line)"/>';
+  [0, 5, 10, 15, 20].forEach(function (t) {
+    out += '<text x="' + x(t) + '" y="' + (H - 10) + '" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--muted)">W' + t + '</text>';
+  });
+  out += '<text x="' + (padL - 6) + '" y="' + (padT + 8) + '" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--muted)">items</text>';
+  var mx = x(8);
+  out += '<line x1="' + mx + '" y1="' + padT + '" x2="' + mx + '" y2="' + (H - padB) + '" stroke="var(--ink)" stroke-dasharray="4 4" stroke-width="1.2"/>';
+  out += '<text x="' + (mx + 6) + '" y="' + (padT + 12) + '" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink)">flow fixed</text>';
+  out += '<text x="' + (x(3)) + '" y="' + (y((started[4] + done[4]) / 2) + 4) + '" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#142230">WIP piles up</text>';
+  out += '<text x="' + (x(16)) + '" y="' + (y((started[16] + done[16]) / 2) + 4) + '" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#142230">steady</text>';
+  svg.innerHTML = out;
+
+  // Working hours: 08:00–18:00 in Goiânia (America/Sao_Paulo, UTC−3, no DST)
+  var now = new Date();
+  var startUtc = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 11, 0));
+  var endUtc = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 21, 0));
+  function fmt(d, tz) {
+    try { return d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: tz }); } catch (e) { return ''; }
+  }
+  var zones = [['Goiânia (my time)', 'America/Sao_Paulo'], ['New York', 'America/New_York'], ['London', 'Europe/London'], ['Lisbon', 'Europe/Lisbon'], ['Your time zone', undefined]];
+  var rows = '';
+  zones.forEach(function (z) {
+    var a1 = fmt(startUtc, z[1]), b1 = fmt(endUtc, z[1]);
+    if (a1) rows += '<tr><td>' + z[0] + '</td><td>' + a1 + '–' + b1 + '</td></tr>';
+  });
+  document.getElementById('tz-body').innerHTML = rows;
+
+  // Contact routes and message composer
+  var route = 'delivery';
+  var EMAIL = 'gersoncorreia@outlook.com';
+  var draft = document.getElementById('draft');
+  var compose = document.getElementById('compose');
+  var status = document.getElementById('status');
+  function val(id) { var el = document.getElementById(id); return el && el.value.trim(); }
+  function build() {
+    var subj, body;
+    if (route === 'delivery') {
+      subj = 'Intro call: delivery help';
+      body = 'Hi Gerson,\n\nI\'d like to book a 30-minute intro call.\n\n' +
+        'Who: ' + (val('d-name') || '[your name and company]') + '\n' +
+        'Team size: ' + (val('d-size') || '[team size]') + '\n' +
+        'Timeline: ' + (val('d-time') || '[when you want to start]') + '\n' +
+        'Main problem: ' + (val('d-problem') || '[what is going wrong]') + '\n\n' +
+        'A few times that work for me: [2–3 options with time zone]\n';
+    } else {
+      subj = 'Role: ' + (val('h-role') || 'delivery position');
+      body = 'Hi Gerson,\n\nI\'m hiring and your profile looks like a fit.\n\n' +
+        'Who: ' + (val('h-name') || '[your name and company]') + '\n' +
+        'Role: ' + (val('h-role') || '[role title]') + '\n' +
+        'Job description: ' + (val('h-link') || '[link]') + '\n\n' +
+        'Could you send me your CV?\n';
+    }
+    draft.textContent = 'Subject: ' + subj + '\n\n' + body;
+    document.getElementById('mailto').href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+  }
+  function setRoute(r) {
+    route = r;
+    document.querySelectorAll('.route').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.route === r)); });
+    document.querySelectorAll('[data-form]').forEach(function (f) { f.hidden = f.dataset.form !== r; });
+    compose.hidden = r === 'connect';
+    status.textContent = '';
+    if (r !== 'connect') build();
+  }
+  document.querySelectorAll('.route').forEach(function (b) { b.addEventListener('click', function () { setRoute(b.dataset.route); }); });
+  document.querySelectorAll('[data-route]').forEach(function (a) {
+    if (a.classList.contains('route')) return;
+    a.addEventListener('click', function () { setRoute(a.dataset.route); });
+  });
+  document.querySelectorAll('form').forEach(function (f) {
+    f.addEventListener('input', build);
+    f.addEventListener('submit', function (e) { e.preventDefault(); });
+  });
+  function copy(text, okMsg, el) {
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      status.textContent = 'Selected. Press Ctrl+C or Cmd+C to copy.';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () { status.textContent = okMsg; }, fallback);
+    } catch (e) { fallback(); }
+  }
+  document.getElementById('copy-msg').addEventListener('click', function () { copy(draft.textContent, 'Message copied. Paste it into an email to ' + EMAIL + '.', draft); });
+  document.getElementById('copy-email').addEventListener('click', function () { copy(EMAIL, 'Email address copied.', document.getElementById('email')); });
+  setRoute('delivery');
+})();
+</script>
+</body>
+</html>
