@@ -3,621 +3,627 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Gerson Correia · Fractional Delivery Lead</title>
-<meta name="description" content="Fractional delivery lead for remote software teams of 15–60 engineers. Know in two weeks why releases slip, what to fix first, and when your next milestone will ship.">
+<title>Gerson Correia · Delivery Consulting</title>
+<meta name="description" content="Gerson Correia, delivery consultant for remote software teams. Delivery Health Check, Fractional Delivery Lead and Status on Autopilot.">
 <link rel="canonical" href="https://gersoncorreia.com/">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gersoncorreia.com/">
-<meta property="og:title" content="Gerson Correia · Fractional Delivery Lead">
-<meta property="og:description" content="Fractional delivery lead for remote software teams of 15–60 engineers. Know in two weeks why releases slip, what to fix first, and when your next milestone will ship.">
-<meta property="og:image" content="https://gersoncorreia.com/og-card.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Gerson Correia · Delivery Consulting">
+<meta property="og:description" content="Gerson Correia, delivery consultant for remote software teams. Delivery Health Check, Fractional Delivery Lead and Status on Autopilot.">
+<meta property="og:image" content="https://gersoncorreia.com/portrait.jpg">
+<meta name="twitter:card" content="summary">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one column, 1080px max. Orange is reserved for actions; data and results are ink. Sections are separated by space and rules, not boxes. */
+/* Layout: single column, 1120px max; a cumulative flow diagram carries the hero; sections separated by space, not boxes. */
 :root {
   --bg: #ffffff;
-  --surface: #f5f7f9;
+  --surface: #f6f8fa;
   --ink: #0f1b2b;
-  --muted: #536072;
-  --line: #e2e7ed;
-  --field: #8a96a6;
-  --accent: #c2410c;
-  --accent-hover: #9a3412;
+  --muted: #586273;
+  --line: #e3e8ee;
+  --grid: rgba(15, 27, 43, 0.05);
+  --accent: #d9480f;
   --accent-ink: #ffffff;
-  --bar: #d3dae3;
-  --bar-hi: #0f1b2b;
+  --band-done: #e8590c;
+  --band-wip: #ffc08a;
+  --band-wait: #e9edf2;
   --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Public Sans", "Segoe UI", system-ui, sans-serif;
-  --fs-s: 0.875rem; --fs-b: 1.0625rem; --fs-m: 1.375rem; --fs-l: 2rem; --fs-xl: clamp(2.2rem, 4.8vw, 3.4rem);
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --step--1: 0.875rem; --step-0: 1.0625rem; --step-1: 1.3rem; --step-2: 1.75rem; --step-3: clamp(2.2rem, 5.2vw, 3.6rem);
   --radius: 10px;
   color-scheme: light;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 76px; }
-body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: var(--fs-b); line-height: 1.6; }
-.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
-h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; letter-spacing: -0.015em; }
-h1 { font-size: var(--fs-xl); font-weight: 800; letter-spacing: -0.025em; }
-h2 { font-size: var(--fs-l); font-weight: 800; }
-h3 { font-size: var(--fs-m); font-weight: 700; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: var(--step-0); line-height: 1.6; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; text-wrap: balance; margin: 0; }
+h2 { font-size: var(--step-2); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); font-weight: 700; }
 p { margin: 0; }
-a { color: var(--ink); text-underline-offset: 3px; }
+a { color: var(--accent); text-underline-offset: 3px; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-.muted { color: var(--muted); }
-.small { font-size: var(--fs-s); }
-.kicker { font-size: var(--fs-s); font-weight: 600; color: var(--muted); }
+.label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .lede { color: var(--muted); max-width: 62ch; }
-section { padding-block: 80px; border-top: 1px solid var(--line); }
-.sec-head { display: grid; gap: 12px; margin-bottom: 36px; max-width: 720px; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+section { padding-block: 72px; border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: 10px; margin-bottom: 36px; }
+
+/* Top bar */
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 22px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; }
+.mono-mark { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; display: block; }
+.portrait { margin: 0 0 24px; display: flex; gap: 18px; align-items: center; }
+.portrait img { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--line); flex: none; }
+.portrait figcaption { font-size: 0.92rem; color: var(--muted); }
+.portrait figcaption b { display: block; color: var(--ink); font-family: var(--font-display); font-size: 1.15rem; }
+.nav { display: flex; gap: 20px; flex-wrap: wrap; font-size: var(--step--1); }
+.nav a { color: var(--muted); text-decoration: none; }
+.nav a:hover { color: var(--ink); }
 
 /* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; font: 600 1rem/1.2 var(--font-body); text-decoration: none; border: 0; cursor: pointer; background: var(--accent); color: var(--accent-ink); transition: background .15s ease; }
-.btn:hover { background: var(--accent-hover); }
-.btn-quiet { background: transparent; color: var(--ink); border: 1.5px solid var(--field); }
-.btn-quiet:hover { background: var(--surface); }
-.textlink { font-weight: 600; }
-
-/* Header */
-.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; }
-.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; color: var(--ink); text-decoration: none; }
-.brand img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
-.nav { display: flex; align-items: center; gap: 22px; font-size: var(--fs-s); }
-.nav a:not(.btn) { color: var(--muted); text-decoration: none; }
-.nav a:not(.btn):hover { color: var(--ink); }
-.nav .btn { min-height: 40px; padding: 8px 16px; font-size: var(--fs-s); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 0.98rem; text-decoration: none; border: 1.5px solid var(--accent); cursor: pointer; font-family: var(--font-body); transition: transform .15s ease; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-ghost { background: transparent; color: var(--accent); }
+.btn:hover { transform: translateY(-1px); }
 
 /* Hero */
-.hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; padding-block: 56px 72px; }
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; padding-block: 48px 72px; position: relative; isolation: isolate; }
+.hero::before { content: ""; position: absolute; inset: 0 -20px; z-index: -1; background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 28px 28px; -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent); mask-image: linear-gradient(180deg, #000 55%, transparent); }
+.cfd { box-shadow: 0 12px 32px -18px rgba(15, 27, 43, 0.25); }
 .hero > * { min-width: 0; }
-.hero .lede { margin-top: 20px; font-size: 1.125rem; color: var(--ink); }
-.cred { margin-top: 16px; font-size: var(--fs-s); color: var(--muted); }
-.cta-row { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; margin-top: 28px; }
-.who { display: flex; align-items: center; gap: 12px; margin-top: 22px; font-size: var(--fs-s); color: var(--muted); }
-.who img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex: none; }
-.who b { color: var(--ink); display: block; font-weight: 600; }
+.hero h1 { font-size: var(--step-3); font-weight: 800; letter-spacing: -0.025em; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lede { margin-top: 20px; font-size: 1.12rem; }
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.cfd { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 18px 12px; }
+.cfd svg { width: 100%; height: auto; display: block; }
+.cfd-legend { display: flex; gap: 16px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 0.74rem; color: var(--muted); margin-top: 8px; }
+.cfd-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.cfd-caption { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
 
-/* Forecast card */
-.forecast { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: var(--bg); box-shadow: 0 18px 40px -28px rgba(15, 27, 43, 0.35); }
-.fc-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: var(--fs-s); color: var(--muted); }
-.fc-before { margin-top: 14px; font-size: var(--fs-s); color: var(--muted); }
-.fc-before s { text-decoration-thickness: 1.5px; }
-.fc-main { margin-top: 6px; display: grid; gap: 2px; }
-.fc-main b { font-family: var(--font-display); font-size: 1.6rem; line-height: 1.2; }
-.fc-main span { font-size: var(--fs-s); color: var(--muted); font-variant-numeric: tabular-nums; }
-.forecast svg { width: 100%; height: auto; display: block; margin-top: 14px; }
-.fc-axis { display: flex; justify-content: space-between; font-size: var(--fs-s); color: var(--muted); font-variant-numeric: tabular-nums; margin-top: 4px; }
-.fc-note { margin-top: 12px; font-size: var(--fs-s); color: var(--muted); }
+/* Proof strip */
+.proof { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.proof div { padding: 22px 16px; border-left: 1px solid var(--line); min-width: 0; }
+.proof div:first-child { border-left: 0; padding-left: 0; }
+.proof b { display: block; font-family: var(--font-display); font-size: 1.7rem; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.proof span { font-size: var(--step--1); color: var(--muted); }
+.proof b::before { content: ""; display: block; width: 18px; height: 3px; background: var(--accent); margin-bottom: 10px; border-radius: 2px; }
 
-/* Proof row */
-.proof { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
-.proof div { padding: 22px 18px 22px 0; min-width: 0; }
-.proof b { display: block; font-family: var(--font-display); font-size: var(--fs-m); font-weight: 800; }
-.proof span { font-size: var(--fs-s); color: var(--muted); }
+/* Problems */
+.problems { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 40px; list-style: none; padding: 0; margin: 0; }
+.problems li { padding: 16px 0 16px 28px; border-bottom: 1px solid var(--line); position: relative; }
+.problems li::before { content: ""; position: absolute; left: 0; top: 25px; width: 12px; height: 12px; border-radius: 3px; background: var(--band-wip); }
 
-/* Problem */
-.pains { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
-.pains li { padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 1.0625rem; }
-.calc { margin-top: 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; background: var(--surface); border-radius: var(--radius); padding: 28px; }
-.calc > * { min-width: 0; }
-.calc-fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
-.calc-out { display: grid; align-content: center; gap: 6px; }
-.calc-out b { font-family: var(--font-display); font-size: var(--fs-l); font-weight: 800; }
+/* Offers */
+.offers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.offer { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.offer.featured { border: 2px solid var(--accent); }
+.offer .meta { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip { font-family: var(--font-mono); font-size: 0.74rem; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.offer ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 0.97rem; }
+.offer .for { font-size: 0.92rem; color: var(--muted); margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--line); }
+.addon { margin-top: 20px; color: var(--muted); font-size: 0.97rem; }
+.addon b { color: var(--ink); }
 
-/* Fields */
-.field { display: grid; gap: 6px; min-width: 0; }
-.field label { font-size: var(--fs-s); font-weight: 600; }
-.field input, .field select, .field textarea { font: inherit; font-size: 1rem; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--field); background: var(--bg); color: var(--ink); width: 100%; min-height: 44px; }
-.field textarea { min-height: 96px; resize: vertical; }
+/* Process */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; list-style: none; padding: 0; margin: 0; }
+.step { min-width: 0; display: flex; flex-direction: column; gap: 10px; padding: 22px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); position: relative; }
+.step::before { content: ""; position: absolute; left: 20px; right: 20px; top: -1px; height: 3px; background: var(--accent); border-radius: 0 0 3px 3px; opacity: 0.35; }
+.step-ai::before { opacity: 1; }
+.steps .n { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); display: flex; align-items: center; gap: 10px; }
+.tag { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); }
+.step p { font-size: 0.95rem; color: var(--muted); }
+.gets { margin: auto 0 0; padding-top: 12px; border-top: 1px dashed var(--line); display: grid; gap: 8px; }
+.gets dt { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.gets dd { margin: 2px 0 0; font-size: 0.92rem; font-weight: 500; }
 
-/* Before / after */
-.ba { width: 100%; border-collapse: collapse; }
-.ba th { text-align: left; font-family: var(--font-display); font-size: var(--fs-m); padding: 0 24px 14px 0; width: 50%; }
-.ba td { padding: 16px 24px 16px 0; border-top: 1px solid var(--line); vertical-align: top; }
-.ba td:first-child { color: var(--muted); }
-.ba td:last-child { font-weight: 600; }
-
-/* Two columns */
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-.two-col > * { min-width: 0; }
-.ticks { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; }
-.ticks li { padding-left: 28px; position: relative; }
-.ticks li::before { position: absolute; left: 0; top: 0; font-weight: 700; }
-.ticks.yes li::before { content: "✓"; color: var(--ink); }
-.ticks.no li::before { content: "✕"; color: var(--muted); }
-
-/* Method timeline */
-.timeline { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
-.timeline li { display: grid; grid-template-columns: 56px 1fr 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); }
-.timeline li > * { min-width: 0; }
-.timeline .n { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-m); color: var(--muted); font-variant-numeric: tabular-nums; }
-.timeline .get { font-weight: 600; }
-.timeline .get span { display: block; font-size: var(--fs-s); font-weight: 600; color: var(--muted); }
-.timeline-note { margin-top: 18px; color: var(--muted); }
-
-/* Results */
-.case { display: grid; grid-template-columns: 240px 1fr; gap: 32px; padding: 32px 0; border-top: 1px solid var(--line); }
+/* Cases */
+.cases { display: grid; gap: 20px; }
+.case { display: grid; grid-template-columns: 230px 1fr; gap: 32px; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); }
 .case > * { min-width: 0; }
-.case-ctx b { display: block; font-family: var(--font-display); font-size: 1.1rem; }
-.case-ctx span { font-size: var(--fs-s); color: var(--muted); }
-.case-result { font-family: var(--font-display); font-size: var(--fs-m); font-weight: 700; margin-bottom: 14px; }
-.case-result .big { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; margin-right: 8px; }
-.cab { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0; }
-.cab dt { font-size: var(--fs-s); font-weight: 600; color: var(--muted); }
-.cab dd { margin: 2px 0 0; font-size: 0.98rem; }
-.quote { margin: 20px 0 0; padding-left: 18px; border-left: 3px solid var(--line); }
-.quote blockquote { margin: 0; font-size: 1.02rem; }
-.quote figcaption { margin-top: 6px; font-size: var(--fs-s); color: var(--muted); }
-.quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-top: 32px; border-top: 1px solid var(--line); }
+.kpi { border-right: 1px solid var(--line); padding-right: 24px; display: flex; flex-direction: column; gap: 6px; }
+.kpi b { font-family: var(--font-display); font-weight: 800; font-size: 3rem; line-height: 1; letter-spacing: -0.03em; color: var(--accent); font-variant-numeric: tabular-nums; }
+.kpi span { font-size: 0.92rem; color: var(--muted); }
+.case-body { display: grid; gap: 10px; }
+.case-body h3 { font-size: 1.35rem; }
+.cab { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 8px 0 0; }
+.cab > div { min-width: 0; }
+.cab dt { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.cab dd { margin: 0; font-size: 0.95rem; }
+.cab div:last-child dd { font-weight: 600; }
 
-/* Offer */
-.offer { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; padding: 36px; border: 2px solid var(--ink); border-radius: var(--radius); }
-.offer > * { min-width: 0; }
-.offer ol { margin: 16px 0 0; padding-left: 22px; display: grid; gap: 8px; }
-.price b { display: block; font-family: var(--font-display); font-size: 2.6rem; font-weight: 800; letter-spacing: -0.02em; }
-.price-side { display: grid; gap: 16px; align-content: start; }
-.price-side p { font-size: 0.98rem; }
-.after { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
-.after article { padding: 24px; background: var(--surface); border-radius: var(--radius); display: grid; gap: 8px; align-content: start; min-width: 0; }
-.after .from { font-weight: 700; font-variant-numeric: tabular-nums; }
+/* Tooling */
+.tools { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 20px; }
+.tool { padding: 24px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); display: grid; gap: 10px; align-content: start; min-width: 0; }
+.tool code { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); overflow-wrap: anywhere; }
+
+/* Quotes */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.quote { margin: 0; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.quote blockquote { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 1.15rem; line-height: 1.4; }
+.quote figcaption { font-size: 0.9rem; color: var(--muted); border-top: 2px solid var(--accent); padding-top: 12px; margin-top: auto; }
+.quote figcaption b { color: var(--ink); display: block; }
 
 /* About */
-.about { display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
+.about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; }
 .about > * { min-width: 0; }
-.about img { width: 100%; max-width: 260px; aspect-ratio: 1; border-radius: var(--radius); object-fit: cover; }
 .about p + p { margin-top: 14px; }
-.facts { margin: 24px 0 0; display: grid; }
-.facts div { display: grid; grid-template-columns: 140px 1fr; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 0.96rem; }
+.facts { display: grid; gap: 0; margin: 0; }
+.facts div { display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
 .facts dt { color: var(--muted); }
 .facts dd { margin: 0; }
 
-/* FAQ */
-.faq details { border-top: 1px solid var(--line); padding: 18px 0; }
-.faq details:last-child { border-bottom: 1px solid var(--line); }
-.faq summary { cursor: pointer; font-family: var(--font-display); font-weight: 700; font-size: 1.12rem; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; font-weight: 600; color: var(--muted); }
-.faq details[open] summary::after { content: "–"; }
-.faq details p { margin-top: 10px; color: var(--muted); max-width: 70ch; }
-
-/* Book */
-.book { background: var(--ink); color: #ffffff; border-top: 0; }
-.book .lede, .book .muted { color: #c3ccd7; }
-.book-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; }
-.book-grid > * { min-width: 0; }
-.panel { background: var(--bg); color: var(--ink); border-radius: var(--radius); padding: 28px; display: grid; gap: 14px; }
-.panel .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.draft { white-space: pre-wrap; font-size: var(--fs-s); background: var(--surface); border-radius: 8px; padding: 14px; overflow-wrap: anywhere; }
+/* Contact */
+.contact { display: grid; grid-template-columns: 1fr 1.25fr; gap: 48px; }
+.contact > * { min-width: 0; }
+.routes { display: grid; gap: 10px; margin-top: 24px; }
+.route { text-align: left; background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 16px 18px; cursor: pointer; color: var(--ink); font: inherit; display: grid; gap: 2px; }
+.route b { font-family: var(--font-display); font-size: 1.05rem; }
+.route span { font-size: 0.9rem; color: var(--muted); }
+.route[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 4px 0 0 var(--accent); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: grid; gap: 16px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 0.88rem; font-weight: 600; }
+.field input, .field select, .field textarea { font: inherit; font-size: 0.96rem; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); width: 100%; }
+.field textarea { min-height: 90px; resize: vertical; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.draft { font-family: var(--font-mono); font-size: 0.82rem; white-space: pre-wrap; background: var(--bg); border: 1px dashed var(--line); border-radius: 8px; padding: 14px; min-height: 120px; overflow-wrap: anywhere; }
 .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-.email { font-weight: 600; user-select: all; }
-.status { font-size: var(--fs-s); color: var(--muted); min-height: 1.2em; }
-.hours { margin-top: 24px; font-size: var(--fs-s); }
-.hours b { color: #ffffff; }
+.email { font-family: var(--font-mono); font-size: 0.92rem; user-select: all; }
+.status { font-size: 0.85rem; color: var(--muted); min-height: 1.2em; }
+.tz { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 24px; font-variant-numeric: tabular-nums; }
+.tz th, .tz td { text-align: left; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.tz th { font-weight: 500; color: var(--muted); }
 
-footer { padding-block: 32px 96px; font-size: var(--fs-s); color: var(--muted); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size: 0.88rem; color: var(--muted); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
-/* Mobile sticky bar */
-.sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(255, 255, 255, 0.96); border-top: 1px solid var(--line); display: none; }
-.sticky .btn { width: 100%; }
-
-@media (max-width: 900px) {
-  .hero, .calc, .two-col, .offer, .book-grid, .about { grid-template-columns: 1fr; }
-  .proof { grid-template-columns: 1fr 1fr; }
-  .case { grid-template-columns: 1fr; gap: 12px; }
-  .quotes, .after { grid-template-columns: 1fr; }
-  .nav a:not(.btn) { display: none; }
+@media (max-width: 920px) {
+  .hero, .about, .contact { grid-template-columns: 1fr; }
+  .offers, .quotes, .tools { grid-template-columns: 1fr; }
+  .proof { grid-template-columns: repeat(2, 1fr); }
+  .proof div { border-left: 0; padding-left: 0; border-bottom: 1px solid var(--line); }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .case { grid-template-columns: 1fr; gap: 18px; }
+  .kpi { border-right: 0; padding-right: 0; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+  .cab { grid-template-columns: 1fr; gap: 14px; }
 }
-@media (max-width: 600px) {
-  section { padding-block: 56px; }
-  .pains, .calc-fields, .cab, .panel .two { grid-template-columns: 1fr; }
-  .timeline li { grid-template-columns: 40px 1fr; }
-  .timeline .get { grid-column: 2; }
-  .offer { padding: 24px; }
+@media (max-width: 560px) {
+  .problems, .steps, .two { grid-template-columns: 1fr; }
+  .nav { display: none; }
+  section { padding-block: 52px; }
   .facts div { grid-template-columns: 1fr; gap: 2px; }
-  .ba th, .ba td { padding-right: 12px; }
-  .sticky.show { display: block; }
 }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="#top"><img src="portrait.jpg" alt="" width="36" height="36">Gerson Correia</a>
-    <nav class="nav" aria-label="Sections">
-      <a href="#results">Results</a><a href="#how">How it works</a><a href="#health-check">Health Check</a><a href="#faq">FAQ</a>
-      <a class="btn" href="#book" data-event="header_cta_click">Request a diagnostic</a>
-    </nav>
-  </div>
-</header>
-
-<main id="top">
 <div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" id="top"><img class="mono-mark" src="portrait.jpg" alt="" width="38" height="38">Gerson Correia</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#offers">Services</a><a href="#how">How I work</a><a href="#cases">Results</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
   <div class="hero">
     <div>
-      <p class="kicker">Fractional delivery lead for remote software teams of 15–60 engineers</p>
-      <h1 style="margin-top:14px">Find out in two weeks why your releases slip, and what to fix first.</h1>
-      <p class="lede">I map where work actually waits in your Jira, Azure DevOps or Asana, show you the one bottleneck to fix first, and give you a delivery date as a range you can defend.</p>
-      <p class="cred">Engineer first · 9+ years leading software delivery · +25% delivery capacity across 4 squads, same headcount</p>
+      <p class="label">Delivery consultant · remote · US, Europe, LATAM</p>
+      <h1 style="margin-top:14px">Software delivery your leadership can <em>predict</em>.</h1>
+      <p class="lede">I find where work really waits, fix the flow, and automate the status reporting that eats your managers' week. Former engineer, 10+ years leading delivery, and I build the tooling myself.</p>
       <div class="cta-row">
-        <a class="btn" href="#book" data-event="hero_cta_click">Request a 20-minute delivery diagnostic</a>
-        <a class="textlink" href="#health-check" data-event="hero_secondary_click">See the Health Check</a>
+        <a class="btn btn-primary" href="#contact" data-route="delivery">Book an intro call</a>
+        <a class="btn btn-ghost" href="#offers">See the services</a>
       </div>
-      <div class="who"><img src="portrait.jpg" alt="Portrait of Gerson Correia" width="44" height="44"><p><b>Gerson Correia</b>Free, on video. Your morning in New York, your afternoon in London.</p></div>
     </div>
-
-    <figure class="forecast" style="margin:0" aria-labelledby="fc-cap">
-      <div class="fc-top"><span>Release 3.2 · forecast from 12 weeks of throughput</span><span>Illustrative</span></div>
-      <p class="fc-before">Last plan: <s>30 Oct</s>, moved 3 times</p>
-      <div class="fc-main"><b>85% likely by 18 Nov</b><span>50% likely by 14 Nov</span></div>
-      <svg viewBox="0 0 440 130" role="img" aria-label="Histogram of simulated finish dates from 5 to 26 November. Most fall between 11 and 16 November; 85 percent fall on or before 18 November.">
-        <g id="fc-bars"></g>
-        <line x1="0" y1="128" x2="440" y2="128" stroke="var(--line)" stroke-width="2"/>
-      </svg>
-      <div class="fc-axis"><span>5 Nov</span><span>14 Nov</span><span>18 Nov</span><span>26 Nov</span></div>
-      <figcaption id="fc-cap" class="fc-note">Each bar is how often a simulated run finished that day. Dark bars are inside the 85% range.</figcaption>
+    <figure class="cfd" style="margin:0" aria-labelledby="cfd-cap">
+      <svg id="cfd" viewBox="0 0 520 300" role="img" aria-label="Cumulative flow diagram: work in progress grows for eight weeks, then narrows after the flow is fixed while finished work rises steadily."></svg>
+      <div class="cfd-legend"><span><i style="background:var(--band-wait)"></i>Waiting</span><span><i style="background:var(--band-wip)"></i>In progress</span><span><i style="background:var(--band-done)"></i>Done</span></div>
+      <figcaption id="cfd-cap" class="cfd-caption">Illustrative cumulative flow diagram. When work in progress stops growing, delivery dates become something you can forecast.</figcaption>
     </figure>
   </div>
 
   <div class="proof" aria-label="Track record">
-    <div><b>+25%</b><span>delivery capacity, same headcount, 4 squads</span></div>
-    <div><b>9+ years</b><span>leading software delivery</span></div>
-    <div><b>25+ projects</b><span>governed in one portfolio as PMO head</span></div>
-    <div><b>Open source</b><span>status automation I built and maintain</span></div>
+    <div><b>10+</b><span>years leading software delivery</span></div>
+    <div><b>+25%</b><span>delivery capacity across 4 squads</span></div>
+    <div><b>25+</b><span>projects governed in one portfolio</span></div>
+    <div><b>3</b><span>regions served remotely: US, Europe, LATAM</span></div>
+    <div><b>PSM I · KMP I</b><span>Scrum and Kanban certified</span></div>
   </div>
-</div>
 
-<div class="wrap">
-  <section aria-labelledby="pain-h">
+  <section aria-labelledby="pain">
     <div class="sec-head">
-      <p class="kicker">Sound familiar?</p>
-      <h2 id="pain-h">When deadlines stop meaning anything</h2>
+      <p class="label">Sound familiar?</p>
+      <h2 id="pain">The signs I'm usually called in for</h2>
     </div>
-    <ul class="pains">
-      <li>You give a date, miss it, and play the same game again next quarter.</li>
-      <li>The round closed, the team grew, and output didn't.</li>
-      <li>Estimates get doubled, and dates still slip.</li>
-      <li>Every Friday, two managers rebuild the status report from Slack threads.</li>
+    <ul class="problems">
+      <li>Dates keep slipping, and nobody can say where the time goes.</li>
+      <li>Everyone is busy, yet little reaches "done" each week.</li>
+      <li>Managers spend hours every week turning Slack threads into status reports.</li>
+      <li>The documented process and the real one stopped matching a long time ago.</li>
     </ul>
-
-    <div class="calc" id="calc">
-      <div>
-        <h3>What your status work costs</h3>
-        <p class="muted small" style="margin-top:6px">Example values. Change them to your own.</p>
-        <div class="calc-fields">
-          <div class="field"><label for="c-people">People writing status</label><input id="c-people" type="number" min="0" step="1" value="3" inputmode="numeric"></div>
-          <div class="field"><label for="c-hours">Hours each, per week</label><input id="c-hours" type="number" min="0" step="0.5" value="3" inputmode="decimal"></div>
-          <div class="field"><label for="c-rate">Loaded cost per hour (US$)</label><input id="c-rate" type="number" min="0" step="5" value="80" inputmode="numeric"></div>
-        </div>
-      </div>
-      <div class="calc-out" aria-live="polite">
-        <span class="small muted">Per year, at 46 working weeks</span>
-        <b id="c-year">US$33,120</b>
-        <span class="small muted" id="c-month">about US$2,760 a month</span>
-        <span class="small muted">A 2014 Harris Poll found US workers spent 4.6 hours a week preparing for status meetings (<a href="https://www.foxnews.com/us/would-your-teammates-rather-watch-paint-dry-than-attend-your-status-meeting.amp">source</a>).</span>
-      </div>
-    </div>
   </section>
 
-  <section aria-labelledby="ba-h">
+  <section id="offers" aria-labelledby="offers-h">
     <div class="sec-head">
-      <p class="kicker">What changes</p>
-      <h2 id="ba-h">From padded dates to a range you can defend</h2>
+      <p class="label">Services</p>
+      <h2 id="offers-h">Three ways to work together</h2>
+      <p class="lede">Fixed scope, clear outputs, fully remote. Most clients start with the Health Check. Pricing is scoped on our first call.</p>
     </div>
-    <div style="overflow-x:auto">
-      <table class="ba">
-        <thead><tr><th scope="col">Today</th><th scope="col">After</th></tr></thead>
-        <tbody>
-          <tr><td>You double the estimate and still miss the date.</td><td>You give a range with a stated confidence, from your own last 12 weeks of data.</td></tr>
-          <tr><td>Friday afternoon goes to rebuilding the status report.</td><td>The readout rebuilds itself from Slack and your tracker.</td></tr>
-          <tr><td>Everyone is busy, and nobody can say where a feature is stuck.</td><td>You can point to the step where work waits, in days.</td></tr>
-          <tr><td>Planning is an argument about opinions.</td><td>Planning starts from throughput everyone can see.</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="margin-top:28px"><a class="btn" href="#book" data-event="ba_cta_click">Request a 20-minute delivery diagnostic</a></p>
-  </section>
-
-  <section aria-labelledby="fit-h">
-    <div class="two-col">
-      <div>
-        <p class="kicker">How I work with engineers</p>
-        <h2 id="fit-h" style="margin-top:12px">Fewer meetings, not more</h2>
-        <p class="lede" style="margin-top:16px">Engineers are right to distrust process people who add ceremonies. I was a developer for five years before I led delivery. I start from the data already in your tracker, cut meetings that don't change a decision, and automate the status work instead of asking people for more updates.</p>
-      </div>
-      <div>
-        <h3>A good fit</h3>
-        <ul class="ticks yes">
-          <li>A remote or hybrid software team of roughly 15–60 engineers</li>
-          <li>At least 3 months of history in Jira, Azure DevOps or Asana</li>
-          <li>A leader who owns delivery dates</li>
-          <li>Dates slipping, or status work eating your managers' week</li>
+    <div class="offers">
+      <article class="offer featured">
+        <div class="meta"><span class="chip">About 2 weeks</span><span class="chip">Fixed scope</span><span class="chip">Start here</span></div>
+        <h3>Delivery Health Check</h3>
+        <p>A fast diagnosis of how work actually flows through your team, and what to change first.</p>
+        <ul>
+          <li>Map of the real workflow, from request to release</li>
+          <li>Baseline metrics: cycle time, throughput, work in progress</li>
+          <li>Where work waits, and why</li>
+          <li>A 30-day action plan and an executive readout</li>
         </ul>
-        <h3 style="margin-top:26px">Not a fit</h3>
-        <ul class="ticks no">
-          <li>Teams of fewer than about 8 engineers</li>
-          <li>You need someone to write code or own the architecture</li>
-          <li>You want individual developer rankings</li>
-          <li>You are hiring for a full-time role</li>
+        <p class="for">For: leaders who need to know why delivery is slow before deciding what to fix.</p>
+      </article>
+      <article class="offer">
+        <div class="meta"><span class="chip">Monthly</span><span class="chip">Part-time</span></div>
+        <h3>Fractional Delivery Lead</h3>
+        <p>I run your delivery system part-time until your team can run it without me.</p>
+        <ul>
+          <li>Scrum or Kanban cadences that people keep</li>
+          <li>A metrics board the team reads and acts on</li>
+          <li>Stakeholder and executive reporting</li>
+          <li>Coaching for your leads, then a planned hand-off</li>
         </ul>
-      </div>
+        <p class="for">For: growing teams that need delivery leadership before they can justify a full-time hire.</p>
+      </article>
+      <article class="offer">
+        <div class="meta"><span class="chip">Fixed scope</span><span class="chip">AI tooling</span></div>
+        <h3>Status on Autopilot</h3>
+        <p>Stop writing status reports by hand. Your tools write them.</p>
+        <ul>
+          <li>The real process mapped in BPMN, handoffs included</li>
+          <li>Status updates flowing from Slack into Asana or Jira</li>
+          <li>A live executive readout instead of a weekly document</li>
+          <li>Built with Claude Code and MCP, documented for your team</li>
+        </ul>
+        <p class="for">For: teams where updates live in chat and tracking lives somewhere else.</p>
+      </article>
     </div>
+    <p class="addon"><b>Add-on: Scrum and Kanban training.</b> Hands-on sessions for squads, built around your own board and your own data.</p>
   </section>
 
   <section id="how" aria-labelledby="how-h">
     <div class="sec-head">
-      <p class="kicker">The method</p>
-      <h2 id="how-h">Flow to Forecast</h2>
-      <p class="lede">Four steps from opaque delivery to dates you can plan around. Each step ends with something your team keeps.</p>
+      <p class="label">The method</p>
+      <h2 id="how-h">Flow to Forecast: four steps from opaque delivery to dates you can plan around</h2>
+      <p class="lede">Each step ends with something your team keeps, and each one pays for itself before the next begins.</p>
     </div>
-    <ol class="timeline">
-      <li><span class="n">1</span><div><h3>Map the real flow</h3><p class="muted">Short interviews and your tool history show how work actually moves, including the handoffs nobody documented.</p></div><p class="get"><span>You get</span>A map of the real workflow, with the waiting time at each step</p></li>
-      <li><span class="n">2</span><div><h3>Measure</h3><p class="muted">Cycle time, throughput and work in progress, pulled from 3–6 months of your tracker history.</p></div><p class="get"><span>You get</span>A baseline and a metrics board your team can read</p></li>
-      <li><span class="n">3</span><div><h3>Fix the constraint</h3><p class="muted">Remove the biggest bottleneck first: limit work in progress, redesign the worst handoffs, keep only the meetings that change decisions.</p></div><p class="get"><span>You get</span>More work finished with the same people</p></li>
-      <li><span class="n">4</span><div><h3>Automate and forecast</h3><p class="muted">AI agents take over status relay and reporting. Dates come from real throughput, as ranges with a stated confidence.</p></div><p class="get"><span>You get</span>A live executive readout and forecasts your team runs without me</p></li>
+    <ol class="steps">
+      <li class="step">
+        <div class="n">01</div>
+        <h3>Map the real flow</h3>
+        <p>Owner-led sessions and the data already in your tools show how work actually moves, including the handoffs nobody documented.</p>
+        <dl class="gets"><div><dt>You get</dt><dd>A map of the real workflow, request to release</dd></div><div><dt>Value</dt><dd>You see where work waits, in days, not opinions</dd></div></dl>
+      </li>
+      <li class="step">
+        <div class="n">02</div>
+        <h3>Measure</h3>
+        <p>Cycle time, throughput and work in progress, pulled from your Jira, Azure DevOps or Asana history.</p>
+        <dl class="gets"><div><dt>You get</dt><dd>A live flow metrics board and a baseline</dd></div><div><dt>Value</dt><dd>One shared picture for teams and leadership</dd></div></dl>
+      </li>
+      <li class="step">
+        <div class="n">03</div>
+        <h3>Fix the constraint</h3>
+        <p>Remove the biggest bottleneck first: limit work in progress, redesign the worst handoffs, set cadences people keep.</p>
+        <dl class="gets"><div><dt>You get</dt><dd>A 30-day plan, run together with your team</dd></div><div><dt>Value</dt><dd>More work finished with the same people</dd></div></dl>
+      </li>
+      <li class="step step-ai">
+        <div class="n">04 <span class="tag">AI-assisted</span></div>
+        <h3>Automate and forecast</h3>
+        <p>AI agents take over status relay and reporting. Delivery dates come from real throughput, as ranges with a stated confidence.</p>
+        <dl class="gets"><div><dt>You get</dt><dd>A live executive readout and delivery forecasts, handed over to your team</dd></div><div><dt>Value</dt><dd>Leaders plan on forecasts; managers get their week back</dd></div></dl>
+      </li>
     </ol>
-    <p class="timeline-note">The Health Check covers steps 1 and 2 and a first forecast. Steps 3 and 4 are the Fractional Delivery Lead and Status on Autopilot.</p>
   </section>
 
-  <section id="results" aria-labelledby="results-h">
+  <section id="cases" aria-labelledby="cases-h">
     <div class="sec-head">
-      <p class="kicker">Results</p>
-      <h2 id="results-h">What changed for the teams I led</h2>
-      <p class="lede">From my in-house and agency delivery roles, before I went independent. Company names are left out.</p>
+      <p class="label">Success cases</p>
+      <h2 id="cases-h">What changed for the teams I worked with</h2>
+      <p class="lede">Company names are left out; the numbers are real.</p>
     </div>
+    <div class="cases">
+      <article class="case">
+        <div class="kpi"><b>+25%</b><span>delivery capacity with the same headcount</span></div>
+        <div class="case-body">
+          <p class="label">Cloud ERP software company · 4 product squads</p>
+          <h3>From capacity debates to flow data</h3>
+          <dl class="cab">
+            <div><dt>Challenge</dt><dd>Four squads with no shared view of flow. Capacity was argued by opinion, and a core financial module had to ship without disrupting customers.</dd></div>
+            <div><dt>Approach</dt><dd>A Lean metrics board (cycle time, lead time, throughput), squads trained to act on it, and an MVP-first rollout split into parallel workstreams.</dd></div>
+            <div><dt>Impact</dt><dd>25% more delivery capacity without hiring. The financial module went live without disrupting users.</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="case">
+        <div class="kpi"><b>25+</b><span>strategic projects steered in one portfolio</span></div>
+        <div class="case-body">
+          <p class="label">Medical education group · directors and a PMO team</p>
+          <h3>A portfolio leadership could actually steer</h3>
+          <dl class="cab">
+            <div><dt>Challenge</dt><dd>More than 25 projects competing for approval and capacity. Business cases were often sent back, and directors lacked a current view.</dd></div>
+            <div><dt>Approach</dt><dd>A maturity scorecard for business cases, an approval process with pre-alignment and sign-off gates, and live portfolio dashboards.</dd></div>
+            <div><dt>Impact</dt><dd>Less rework at approval, a shorter approval cycle, and real-time visibility for directors.</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="case">
+        <div class="kpi"><b>Live</b><span>executive readout in place of hand-written status reports</span></div>
+        <div class="case-body">
+          <p class="label">Series B AI company · support, engineering and implementation teams</p>
+          <h3>Status reporting that rebuilds itself</h3>
+          <dl class="cab">
+            <div><dt>Challenge</dt><dd>The real state of work lived in Slack threads; the tracked state lived in Asana. Someone retyped one into the other every cycle.</dd></div>
+            <div><dt>Approach</dt><dd>Mapped the cross-team lifecycle with directors and leads, then built an AI agent that moves Slack updates onto the right task.</dd></div>
+            <div><dt>Impact</dt><dd>Reporting became a rebuild instead of a rewrite, and the gaps between documented and real process were made visible.</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
 
-    <article class="case">
-      <div class="case-ctx"><b>Cloud ERP software company</b><span>4 product squads · development manager</span></div>
-      <div>
-        <p class="case-result"><span class="big">+25%</span>delivery capacity with the same headcount</p>
-        <dl class="cab">
-          <div><dt>Challenge</dt><dd>No shared view of flow across four squads. Capacity was argued by opinion, and a core financial module had to ship without disrupting customers.</dd></div>
-          <div><dt>What I did</dt><dd>Built the company's first Lean metrics board, trained the squads to act on it, and split the module rollout into parallel, MVP-first workstreams.</dd></div>
-        </dl>
-        <figure class="quote">
-          <blockquote>"He set up several workstreams to deliver the financial epic within a single sprint. The system went live with an entire new module, built MVP-first, without disrupting users."</blockquote>
-          <figcaption>Senior Software Engineer on the team · translated from Portuguese</figcaption>
-        </figure>
-      </div>
-    </article>
+  <section aria-labelledby="tools-h">
+    <div class="sec-head">
+      <p class="label">Tooling I build</p>
+      <h2 id="tools-h">I automate the work around the work</h2>
+      <p class="lede">Most delivery leads report on the problem. I also build the tools that remove it.</p>
+    </div>
+    <div class="tools">
+      <article class="tool">
+        <span class="chip" style="justify-self:start">Open source</span>
+        <h3>Slack-to-Asana sync</h3>
+        <p>Reads thread replies in Slack and posts them as comments, completions and reassignments on the right Asana task.</p>
+        <a href="https://github.com/gersoncorreias/claude-slack-to-asana">View on GitHub</a>
+        <code>github.com/gersoncorreias/claude-slack-to-asana</code>
+      </article>
+      <article class="tool">
+        <h3>Coordination-cost analyzer</h3>
+        <p>Turns the relay work between teams into hours and cost, so leaders see what handoffs really cost them.</p>
+      </article>
+      <article class="tool">
+        <h3>BPMN toolchain</h3>
+        <p>Generates, reads and validates BPMN 2.0 process diagrams, so process maps stay accurate as the process changes.</p>
+      </article>
+    </div>
+  </section>
 
-    <article class="case">
-      <div class="case-ctx"><b>Medical education group</b><span>25+ strategic projects · PMO head</span></div>
-      <div>
-        <p class="case-result">A shorter approval cycle and less rework at approval</p>
-        <dl class="cab">
-          <div><dt>Challenge</dt><dd>More than 25 projects competing for approval and capacity. Business cases were often sent back, and directors lacked a current view.</dd></div>
-          <div><dt>What I did</dt><dd>A maturity scorecard for business cases, an approval process with pre-alignment and sign-off gates, and live dashboards for directors.</dd></div>
-        </dl>
-      </div>
-    </article>
-
-    <article class="case">
-      <div class="case-ctx"><b>Series B AI company</b><span>Support, engineering and implementation teams</span></div>
-      <div>
-        <p class="case-result">Status reporting rebuilt from live data instead of retyped</p>
-        <dl class="cab">
-          <div><dt>Challenge</dt><dd>The real state of work lived in Slack threads; the tracked state lived in Asana. Someone retyped one into the other every cycle.</dd></div>
-          <div><dt>What I did</dt><dd>Mapped the cross-team lifecycle with directors and leads, then built an AI agent that moves Slack updates onto the right task. <a href="https://github.com/gersoncorreias/claude-slack-to-asana" data-event="github_click">The agent is open source</a>.</dd></div>
-        </dl>
-      </div>
-    </article>
-
+  <section aria-labelledby="quotes-h">
+    <div class="sec-head">
+      <p class="label">What people say</p>
+      <h2 id="quotes-h">From the people I've worked with</h2>
+    </div>
     <div class="quotes">
-      <figure class="quote" style="margin:0">
+      <figure class="quote">
         <blockquote>"He is a very outstanding professional in the area of project management… excellent communication and proactivity with the team makes him a natural leader."</blockquote>
-        <figcaption>Tech Director</figcaption>
+        <figcaption><b>Tech Director</b></figcaption>
       </figure>
-      <figure class="quote" style="margin:0">
+      <figure class="quote">
+        <blockquote>"He set up several workstreams to deliver the financial epic within a single sprint. The system went live with an entire new module, built MVP-first, without disrupting users."</blockquote>
+        <figcaption><b>Senior Software Engineer</b></figcaption>
+      </figure>
+      <figure class="quote">
         <blockquote>"Gerson has a strong command of agile practices and is always looking for ways to improve processes and streamline workflows."</blockquote>
-        <figcaption>Product Manager</figcaption>
+        <figcaption><b>Product Manager</b></figcaption>
       </figure>
     </div>
-  </section>
-
-  <section id="health-check" aria-labelledby="hc-h">
-    <div class="sec-head">
-      <p class="kicker">Start here</p>
-      <h2 id="hc-h">The Delivery Health Check</h2>
-      <p class="lede">Know in 10 business days why delivery slips, what to fix first, and when your next milestone will realistically ship.</p>
-    </div>
-    <div class="offer">
-      <div>
-        <h3>What you get</h3>
-        <ol>
-          <li>A map of your real workflow, request to release, with the waiting time at each step</li>
-          <li>Baseline metrics from 3–6 months of tracker history: cycle time, throughput, work in progress, work-item age</li>
-          <li>The top 3 constraints, ranked by the days of waiting they cause</li>
-          <li>A forecast for one milestone you name: a date range at 50% and 85% confidence</li>
-          <li>The cost of your manual status work, in hours and dollars</li>
-          <li>A 30-day action plan with owners</li>
-          <li>A 60-minute readout for your leadership, recorded</li>
-        </ol>
-      </div>
-      <div class="price-side">
-        <div class="price"><b>US$4,500</b><span class="muted">fixed price</span></div>
-        <p><b>Founding rate:</b> US$3,000 for the first three clients, in exchange for a named case study.</p>
-        <p><b>Low risk:</b> half at the start. The second half only after the readout, and only if it delivered everything listed.</p>
-        <p class="muted">10 business days from read-only access. About 4 hours of your team's time.</p>
-        <p><a class="btn" href="#book" data-event="offer_cta_click" data-offer="health_check">Ask whether a Health Check fits</a></p>
-      </div>
-    </div>
-    <div class="after">
-      <article>
-        <p class="kicker">After the Health Check</p>
-        <h3>Fractional Delivery Lead</h3>
-        <p class="muted">I run your delivery system part-time, about 8–10 hours a week: cadences, the metrics board, stakeholder reporting and coaching for your leads, then a planned hand-off.</p>
-        <p class="from">From US$5,000 a month</p>
-      </article>
-      <article>
-        <p class="kicker">After the Health Check</p>
-        <h3>Status on Autopilot</h3>
-        <p class="muted">Your real process mapped, status updates flowing from Slack into Asana or Jira, and a live executive readout instead of a weekly document.</p>
-        <p class="from">From US$6,000</p>
-      </article>
-    </div>
-    <p class="muted small" style="margin-top:18px">Scrum and Kanban training for squads, built around your own board, is quoted per session.</p>
   </section>
 
   <section id="about" aria-labelledby="about-h">
     <div class="about">
-      <img src="portrait.jpg" alt="Portrait of Gerson Correia" width="260" height="260">
       <div>
-        <p class="kicker">About</p>
-        <h2 id="about-h" style="margin:10px 0 18px">An engineer who became a delivery leader</h2>
-        <p>I started as a C# developer in 2012, so I talk with engineers as a peer, not as someone collecting status. Since 2017 I've led delivery as Scrum Master, project manager, development manager and PMO head, in Brazil and for remote clients in the US, Europe and LATAM.</p>
-        <p>Since October 2026 I work independently. I make the real flow of work visible, change the system so it improves, and automate the reporting so leaders see the truth without asking for it.</p>
-        <dl class="facts">
-          <div><dt>Based in</dt><dd>Brazil (UTC−3), working remotely</dd></div>
-          <div><dt>Certifications</dt><dd>Professional Scrum Master I · Kanban System Design (KMP I) · Management 3.0 Fundamentals · Claude Project Professional (Uniagil)</dd></div>
-          <div><dt>Courses</dt><dd>Anthropic: Agent Skills, Model Context Protocol, Building with the Claude API</dd></div>
-          <div><dt>Education</dt><dd>MBA, Leadership, Innovation and Management 3.0 (PUCRS) · BSc Information Systems (UFG)</dd></div>
-          <div><dt>Tools</dt><dd>Jira · Azure DevOps · Asana · Monday · Slack · BPMN · Claude Code and MCP</dd></div>
-        </dl>
+        <p class="label">About</p>
+        <h2 id="about-h" style="margin:10px 0 20px">An engineer who became a delivery leader</h2>
+        <p>I started as a C# developer in 2012, so I talk with engineers as a peer, not as someone collecting status. Since 2017 I've led delivery as Scrum Master, project manager, development manager and PMO head, in Brazil and for remote clients across the US, Europe and LATAM.</p>
+        <p>My work sits where people, process and tooling meet. I make the real flow of work visible, change the system so it improves, and automate the reporting so leaders see the truth without asking for it. I also published research on how organisational culture shapes agile adoption.</p>
+      </div>
+      <div>
+        <figure class="portrait"><img src="portrait.jpg" alt="Portrait of Gerson Correia" width="128" height="128"><figcaption><b>Gerson Correia</b>Delivery consultant · Brazil</figcaption></figure>
+      <dl class="facts">
+        <div><dt>Based in</dt><dd>Brazil (UTC−3), working remotely</dd></div>
+        <div><dt>Certifications</dt><dd>Professional Scrum Master I · Kanban System Design (KMP I) · Management 3.0 · Anthropic: Agent Skills, MCP, Claude API</dd></div>
+        <div><dt>Education</dt><dd>MBA, Leadership, Innovation and Management 3.0 (PUCRS) · BSc Information Systems (UFG)</dd></div>
+        <div><dt>Tools</dt><dd>Jira · Azure DevOps · Asana · Monday · BPMN · Claude Code and MCP</dd></div>
+      </dl>
       </div>
     </div>
   </section>
 
-  <section id="faq" class="faq" aria-labelledby="faq-h">
-    <div class="sec-head"><p class="kicker">Questions</p><h2 id="faq-h">Before you write</h2></div>
-    <details><summary>What does it cost?</summary><p>The Health Check is US$4,500, fixed. The first three clients pay US$3,000 in exchange for a named case study. The Fractional Delivery Lead starts at US$5,000 a month and Status on Autopilot at US$6,000. Invoices are in US dollars.</p></details>
-    <details><summary>What happens on the 20-minute call?</summary><p>You tell me about one date that worries you, and I ask about your team and tools. You leave with the first metric to check in your tracker and an honest answer on whether a Health Check fits. If it doesn't, I'll say so.</p></details>
-    <details><summary>Will the time zones work?</summary><p>I work 08:00–18:00 Brazil time (UTC−3, no daylight saving). That covers the full working day on the US East Coast and your afternoon in the UK and Europe.</p></details>
-    <details><summary>Will this add meetings for my engineers?</summary><p>No. The Health Check needs a kickoff, a few 30-minute interviews and the readout: about 4 hours of your team's time across 10 days. Later, I remove meetings that don't change a decision.</p></details>
-    <details><summary>What access do you need?</summary><p>Read-only access to your tracker and to the Slack channels we agree on. No code and no customer data. I'm happy to sign your NDA.</p></details>
-    <details><summary>Which tools do you work with?</summary><p>Jira, Azure DevOps, Asana and Monday, with Slack. If you use something else, ask on the call.</p></details>
-    <details><summary>How do contracts and payment work?</summary><p>A short statement of work in English, invoiced in US dollars and paid by bank transfer. For the Health Check, half at the start and the second half after the readout, only if it delivered everything listed.</p></details>
-    <details><summary>What if the problem isn't process?</summary><p>If it's architecture, hiring or code quality, I'll tell you on the call and point you to the right kind of help.</p></details>
-  </section>
-</div>
-
-<section id="book" class="book" aria-labelledby="book-h">
-  <div class="wrap book-grid">
-    <div>
-      <p class="kicker" style="color:#c3ccd7">20 minutes, free, on video</p>
-      <h2 id="book-h" style="margin:12px 0 16px">Your next slip is already in your tracker. Let's find it.</h2>
-      <p class="lede">Tell me about one date that worries you. You leave the call with the first metric to check, and an honest answer on whether a Health Check is worth it.</p>
-      <p class="hours" id="hours">I work <b>08:00–18:00 Brazil time</b>.</p>
-      <p class="hours">I reply within one business day. Prefer LinkedIn? <a href="https://www.linkedin.com/in/gerson-correia" style="color:#ffffff" data-event="linkedin_click">Message me there</a>.</p>
-    </div>
-    <div class="panel">
-      <form id="f-diag" novalidate>
-        <div class="field"><label for="d-problem">What is going wrong?</label><textarea id="d-problem" placeholder="Releases slip every sprint and we can't see where the time goes."></textarea></div>
-        <div class="two" style="margin-top:14px">
-          <div class="field"><label for="d-size">Engineers on the team</label>
-            <select id="d-size"><option value="">Choose…</option><option>Fewer than 15</option><option>15–30</option><option>30–60</option><option>More than 60</option></select></div>
-          <div class="field"><label for="d-date">Next date that worries you</label><input id="d-date" placeholder="Release 3.2, end of November"></div>
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="contact">
+      <div>
+        <p class="label">Contact</p>
+        <h2 id="contact-h" style="margin:10px 0 14px">What brings you here?</h2>
+        <p class="lede">Pick the closest option. I'll help you write a short message so I can reply with something useful. I answer within one business day.</p>
+        <div class="routes" role="group" aria-label="Reason for contact">
+          <button class="route" type="button" id="route-delivery" data-route="delivery" aria-pressed="true"><b>Our delivery keeps slipping</b><span>Dates move, work piles up, nobody can say why</span></button>
+          <button class="route" type="button" id="route-automation" data-route="automation" aria-pressed="false"><b>Status work eats our week</b><span>Updates live in chat, tracking lives somewhere else</span></button>
+          <button class="route" type="button" id="route-connect" data-route="connect" aria-pressed="false"><b>Let's connect</b><span>LinkedIn is easiest</span></button>
         </div>
-        <div class="field" style="margin-top:14px"><label for="d-name">Your name, role and company</label><input id="d-name" placeholder="Ana Silva, CTO, Acme"></div>
-      </form>
-      <div>
-        <p class="small muted" style="margin-bottom:6px">Your message</p>
-        <div class="draft" id="draft"></div>
+        <table class="tz" aria-label="My working hours in other time zones">
+          <thead><tr><th scope="col">My working hours in</th><th scope="col">Local time</th></tr></thead>
+          <tbody id="tz-body"></tbody>
+        </table>
       </div>
-      <p class="small">Send it to <span class="email" id="email">empiricusd@gmail.com</span></p>
-      <div class="row">
-        <button class="btn" type="button" id="copy-msg" data-event="message_copy">Copy message</button>
-        <button class="btn btn-quiet" type="button" id="copy-email" data-event="email_copy">Copy email address</button>
-        <a class="btn btn-quiet" id="mailto" href="mailto:empiricusd@gmail.com" data-event="mailto_click">Open in email app</a>
-      </div>
-      <p class="status" id="status" role="status"></p>
-    </div>
-  </div>
-</section>
-</main>
 
-<div class="wrap">
+      <div class="panel" id="panel" aria-live="polite">
+        <form id="f-delivery" data-form="delivery" novalidate>
+          <div class="field"><label for="d-problem">What is going wrong?</label><textarea id="d-problem" name="problem" placeholder="Releases slip every sprint and we can't see where the time goes."></textarea></div>
+          <div class="two" style="margin-top:14px">
+            <div class="field"><label for="d-size">Team size</label>
+              <select id="d-size" name="size"><option value="">Choose…</option><option>Under 10 people</option><option>10–30 people</option><option>30–100 people</option><option>Over 100 people</option></select></div>
+            <div class="field"><label for="d-time">How urgent is it?</label>
+              <select id="d-time" name="time"><option value="">Choose…</option><option>Urgent: it is hurting us now</option><option>Within the next month</option><option>This quarter</option><option>Exploring options</option></select></div>
+          </div>
+          <div class="field" style="margin-top:14px"><label for="d-tried">What have you tried so far? (optional)</label><input id="d-tried" name="tried" placeholder="New sprint length, more stand-ups, a new tool"></div>
+          <div class="field" style="margin-top:14px"><label for="d-name">Your name and company</label><input id="d-name" name="name" placeholder="Ana Silva, Acme Corp"></div>
+        </form>
+        <form id="f-automation" data-form="automation" novalidate hidden>
+          <div class="field"><label for="a-manual">What is done by hand today?</label><textarea id="a-manual" name="manual" placeholder="Every Friday two managers copy Slack updates into Jira and write the status report."></textarea></div>
+          <div class="two" style="margin-top:14px">
+            <div class="field"><label for="a-tools">Tools you use</label><input id="a-tools" name="tools" placeholder="Slack, Jira, Google Sheets"></div>
+            <div class="field"><label for="a-time">How urgent is it?</label>
+              <select id="a-time" name="time"><option value="">Choose…</option><option>Urgent: it is hurting us now</option><option>Within the next month</option><option>This quarter</option><option>Exploring options</option></select></div>
+          </div>
+          <div class="field" style="margin-top:14px"><label for="a-name">Your name and company</label><input id="a-name" name="name" placeholder="Ana Silva, Acme Corp"></div>
+        </form>
+        <div data-form="connect" hidden>
+          <p>Send me a connection request with a line about what you work on.</p>
+          <p style="margin-top:14px"><a class="btn btn-primary" href="https://www.linkedin.com/in/gerson-correia">Open my LinkedIn profile</a></p>
+        </div>
+
+        <div id="compose">
+          <p class="label" style="margin-bottom:8px">Your message</p>
+          <div class="draft" id="draft"></div>
+          <p style="margin-top:14px;font-size:0.92rem">Send it to <span class="email" id="email">empiricusd@gmail.com</span></p>
+          <div class="row" style="margin-top:12px">
+            <button class="btn btn-primary" type="button" id="copy-msg">Copy message</button>
+            <button class="btn btn-ghost" type="button" id="copy-email">Copy email address</button>
+            <a class="btn btn-ghost" id="mailto" href="mailto:empiricusd@gmail.com">Open in email app</a>
+          </div>
+          <p class="status" id="status" role="status"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <span>Gerson Correia · Independent delivery consultant · Brazil</span>
-    <span>This site sets no cookies, runs no tracking and stores nothing you type. · <a href="https://www.linkedin.com/in/gerson-correia">LinkedIn</a> · <a href="https://github.com/gersoncorreias">GitHub</a></span>
+    <span>Gerson Correia · Delivery consulting for remote software teams</span>
+    <span><a href="https://www.linkedin.com/in/gerson-correia">LinkedIn</a> · <a href="https://github.com/gersoncorreias">GitHub</a></span>
   </footer>
 </div>
 
-<div class="sticky" id="sticky"><a class="btn" href="#book" data-event="sticky_cta_click">Request a 20-minute diagnostic</a></div>
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Gerson Correia Delivery Consulting","url":"https://gersoncorreia.com/","image":"https://gersoncorreia.com/portrait.jpg","areaServed":["US","GB","EU"],"founder":{"@type":"Person","name":"Gerson Correia","jobTitle":"Independent delivery consultant","sameAs":["https://www.linkedin.com/in/gerson-correia","https://github.com/gersoncorreias"]},"makesOffer":{"@type":"Offer","name":"Delivery Health Check","price":"4500","priceCurrency":"USD"}}
-</script>
 <script>
 (function () {
-  // Forecast histogram (illustrative). Index 0 = 5 Nov. 50% falls on 14 Nov (index 9), 85% on 18 Nov (index 13).
-  var h = [1, 2, 4, 7, 11, 16, 22, 27, 30, 29, 26, 22, 18, 14, 10, 7, 5, 3, 2, 1, 1, 0];
-  var g = document.getElementById('fc-bars'), out = '';
-  h.forEach(function (v, i) {
-    var bh = Math.max(v / 30 * 118, v ? 2 : 0);
-    out += '<rect x="' + (i * 20 + 2) + '" y="' + (127 - bh) + '" width="16" height="' + bh + '" rx="2" fill="' + (i <= 13 ? 'var(--bar-hi)' : 'var(--bar)') + '"/>';
-  });
-  g.innerHTML = out;
-
-  // Status-cost calculator
-  function num(id) { var v = parseFloat(document.getElementById(id).value); return isFinite(v) && v > 0 ? v : 0; }
-  function money(n) { return 'US$' + Math.round(n).toLocaleString('en-US'); }
-  function calc() {
-    var y = num('c-people') * num('c-hours') * num('c-rate') * 46;
-    document.getElementById('c-year').textContent = money(y);
-    document.getElementById('c-month').textContent = 'about ' + money(y / 12) + ' a month';
+  // Cumulative flow diagram: illustrative, 20 weeks. Arrivals steady; the flow is fixed at week 8.
+  var svg = document.getElementById('cfd');
+  var W = 520, H = 300, padL = 34, padR = 12, padT = 14, padB = 30, weeks = 20;
+  var arrived = [], started = [], done = [];
+  var a = 0, s = 0, d = 0;
+  for (var w = 0; w <= weeks; w++) {
+    arrived.push(a); started.push(s); done.push(d);
+    a += w < 8 ? 6 : 5.2;
+    s += w < 8 ? 5.5 : 5;
+    d += w < 8 ? 2.2 : (s - d > 10 ? 7 : 5);
+    if (d > s) d = s;
   }
-  ['c-people', 'c-hours', 'c-rate'].forEach(function (id) { document.getElementById(id).addEventListener('input', calc); });
-  calc();
+  var max = arrived[weeks];
+  function x(i) { return padL + (W - padL - padR) * i / weeks; }
+  function y(v) { return padT + (H - padT - padB) * (1 - v / max); }
+  function area(top, bottom) {
+    var p = 'M' + x(0) + ',' + y(top[0]);
+    for (var i = 1; i <= weeks; i++) p += 'L' + x(i).toFixed(1) + ',' + y(top[i]).toFixed(1);
+    for (var j = weeks; j >= 0; j--) p += 'L' + x(j).toFixed(1) + ',' + y(bottom[j]).toFixed(1);
+    return p + 'Z';
+  }
+  var zero = arrived.map(function () { return 0; });
+  var ns = 'http://www.w3.org/2000/svg', out = '';
+  out += '<path d="' + area(arrived, started) + '" fill="var(--band-wait)"/>';
+  out += '<path d="' + area(started, done) + '" fill="var(--band-wip)"/>';
+  out += '<path d="' + area(done, zero) + '" fill="var(--band-done)"/>';
+  out += '<line x1="' + padL + '" y1="' + (H - padB) + '" x2="' + (W - padR) + '" y2="' + (H - padB) + '" stroke="var(--line)"/>';
+  [0, 5, 10, 15, 20].forEach(function (t) {
+    out += '<text x="' + x(t) + '" y="' + (H - 10) + '" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--muted)">W' + t + '</text>';
+  });
+  out += '<text x="' + (padL - 6) + '" y="' + (padT + 8) + '" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--muted)">items</text>';
+  var mx = x(8);
+  out += '<line x1="' + mx + '" y1="' + padT + '" x2="' + mx + '" y2="' + (H - padB) + '" stroke="var(--ink)" stroke-dasharray="4 4" stroke-width="1.2"/>';
+  out += '<text x="' + (mx + 6) + '" y="' + (padT + 12) + '" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink)">flow fixed</text>';
+  out += '<text x="' + (x(3)) + '" y="' + (y((started[4] + done[4]) / 2) + 4) + '" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#142230">WIP piles up</text>';
+  out += '<text x="' + (x(16)) + '" y="' + (y((started[16] + done[16]) / 2) + 4) + '" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#142230">steady</text>';
+  svg.innerHTML = out;
 
-  // Working hours in other time zones (08:00–18:00 America/Sao_Paulo = 11:00–21:00 UTC)
+  // Working hours: 08:00–18:00 Brazil time (America/Sao_Paulo, UTC−3, no DST)
   var now = new Date();
-  var a = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 11, 0));
-  var b = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 21, 0));
-  function t(d, tz) { try { return d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: tz }); } catch (e) { return ''; } }
-  var ny = t(a, 'America/New_York') + '–' + t(b, 'America/New_York');
-  var ldn = t(a, 'Europe/London') + '–' + t(b, 'Europe/London');
-  var me = t(a) + '–' + t(b);
-  if (ny.length > 2) document.getElementById('hours').innerHTML = 'I work <b>08:00–18:00 Brazil time</b>: ' + ny + ' in New York, ' + ldn + ' in London, ' + me + ' your time.';
+  var startUtc = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 11, 0));
+  var endUtc = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 21, 0));
+  function fmt(d, tz) {
+    try { return d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: tz }); } catch (e) { return ''; }
+  }
+  var zones = [['Brazil (my time)', 'America/Sao_Paulo'], ['New York', 'America/New_York'], ['London', 'Europe/London'], ['Lisbon', 'Europe/Lisbon'], ['Your time zone', undefined]];
+  var rows = '';
+  zones.forEach(function (z) {
+    var a1 = fmt(startUtc, z[1]), b1 = fmt(endUtc, z[1]);
+    if (a1) rows += '<tr><td>' + z[0] + '</td><td>' + a1 + '–' + b1 + '</td></tr>';
+  });
+  document.getElementById('tz-body').innerHTML = rows;
 
-  // Diagnostic request composer
+  // Contact routes and message composer
+  var route = 'delivery';
   var EMAIL = 'empiricusd@gmail.com';
-  var draft = document.getElementById('draft'), status = document.getElementById('status');
-  function val(id) { return document.getElementById(id).value.trim(); }
+  var draft = document.getElementById('draft');
+  var compose = document.getElementById('compose');
+  var status = document.getElementById('status');
+  function val(id) { var el = document.getElementById(id); return el && el.value.trim(); }
   function build() {
-    var who = val('d-name');
-    var subj = 'Delivery diagnostic request' + (who ? ' (' + who + ')' : '');
-    var body = 'Hi Gerson,\n\nWe have a delivery problem we need to solve.\n\n' +
-      'What is going wrong: ' + (val('d-problem') || '[describe the problem]') + '\n' +
-      'Engineers on the team: ' + (val('d-size') || '[team size]') + '\n' +
-      'Next date that worries me: ' + (val('d-date') || '[the release or milestone]') + '\n\n' +
-      'Could we have the 20-minute diagnostic call? Times that work for me: [2–3 options with time zone]\n\n' +
-      (who || '[your name, role, company]') + '\n';
+    var subj, body, sign;
+    if (route === 'delivery') {
+      sign = val('d-name');
+      subj = 'Delivery problem we need to solve' + (sign ? ' (' + sign + ')' : '');
+      body = 'Hi Gerson,\n\nWe have a delivery problem we need to solve.\n\n' +
+        'What is going wrong: ' + (val('d-problem') || '[describe the problem]') + '\n' +
+        'Team size: ' + (val('d-size') || '[team size]') + '\n' +
+        'What we have tried: ' + (val('d-tried') || '[what you tried so far]') + '\n' +
+        'How urgent: ' + (val('d-time') || '[how urgent]') + '\n\n' +
+        'Could we have a 30-minute call to see how you would approach it? Times that work for me: [2–3 options with time zone]\n\n' +
+        (sign || '[your name, company]') + '\n';
+    } else {
+      sign = val('a-name');
+      subj = 'Too much manual status work' + (sign ? ' (' + sign + ')' : '');
+      body = 'Hi Gerson,\n\nOur team loses too much time on manual status and reporting work, and we want to fix it.\n\n' +
+        'Done by hand today: ' + (val('a-manual') || '[what is done by hand]') + '\n' +
+        'Tools we use: ' + (val('a-tools') || '[tools]') + '\n' +
+        'How urgent: ' + (val('a-time') || '[how urgent]') + '\n\n' +
+        'Could we have a 30-minute call to see what could be automated? Times that work for me: [2–3 options with time zone]\n\n' +
+        (sign || '[your name, company]') + '\n';
+    }
     draft.textContent = 'Subject: ' + subj + '\n\n' + body;
     document.getElementById('mailto').href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
   }
-  var form = document.getElementById('f-diag');
-  form.addEventListener('input', build);
-  form.addEventListener('submit', function (e) { e.preventDefault(); });
-  function copy(text, ok, el) {
+  function setRoute(r) {
+    route = r;
+    document.querySelectorAll('.route').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.route === r)); });
+    document.querySelectorAll('[data-form]').forEach(function (f) { f.hidden = f.dataset.form !== r; });
+    compose.hidden = r === 'connect';
+    status.textContent = '';
+    if (r !== 'connect') build();
+  }
+  document.querySelectorAll('.route').forEach(function (b) { b.addEventListener('click', function () { setRoute(b.dataset.route); }); });
+  document.querySelectorAll('[data-route]').forEach(function (a) {
+    if (a.classList.contains('route')) return;
+    a.addEventListener('click', function () { setRoute(a.dataset.route); });
+  });
+  document.querySelectorAll('form').forEach(function (f) {
+    f.addEventListener('input', build);
+    f.addEventListener('submit', function (e) { e.preventDefault(); });
+  });
+  function copy(text, okMsg, el) {
     function fallback() {
       var r = document.createRange(); r.selectNodeContents(el);
       var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
       status.textContent = 'Selected. Press Ctrl+C or Cmd+C to copy.';
     }
-    try { navigator.clipboard.writeText(text).then(function () { status.textContent = ok; }, fallback); } catch (e) { fallback(); }
+    try {
+      navigator.clipboard.writeText(text).then(function () { status.textContent = okMsg; }, fallback);
+    } catch (e) { fallback(); }
   }
   document.getElementById('copy-msg').addEventListener('click', function () { copy(draft.textContent, 'Message copied. Paste it into an email to ' + EMAIL + '.', draft); });
   document.getElementById('copy-email').addEventListener('click', function () { copy(EMAIL, 'Email address copied.', document.getElementById('email')); });
-  build();
-
-  // Mobile sticky CTA: show after the hero, hide when the booking section is on screen
-  var sticky = document.getElementById('sticky'), heroPassed = false, bookVisible = false;
-  function upd() { sticky.classList.toggle('show', heroPassed && !bookVisible); }
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (e) { heroPassed = !e[0].isIntersecting; upd(); }).observe(document.querySelector('.hero'));
-    new IntersectionObserver(function (e) { bookVisible = e[0].isIntersecting; upd(); }).observe(document.getElementById('book'));
-  }
+  setRoute('delivery');
 })();
 </script>
 </body>
