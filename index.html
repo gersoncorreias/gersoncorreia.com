@@ -112,23 +112,31 @@ section { padding-block: 72px; border-top: 1px solid var(--line); }
 .addon b { color: var(--ink); }
 
 /* Process */
-.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: s; list-style: none; padding: 0; margin: 0; }
-.steps li { padding: 0 20px 0 0; min-width: 0; }
-.steps .n { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.steps .n::after { content: ""; flex: 1; height: 2px; background: linear-gradient(90deg, var(--accent), var(--line)); }
-.steps li:last-child .n::after { background: var(--line); }
-.steps h3 { margin-bottom: 8px; }
-.steps p { font-size: 0.95rem; color: var(--muted); }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; list-style: none; padding: 0; margin: 0; }
+.step { min-width: 0; display: flex; flex-direction: column; gap: 10px; padding: 22px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); position: relative; }
+.step::before { content: ""; position: absolute; left: 20px; right: 20px; top: -1px; height: 3px; background: var(--accent); border-radius: 0 0 3px 3px; opacity: 0.35; }
+.step-ai::before { opacity: 1; }
+.steps .n { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); display: flex; align-items: center; gap: 10px; }
+.tag { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); }
+.step p { font-size: 0.95rem; color: var(--muted); }
+.gets { margin: auto 0 0; padding-top: 12px; border-top: 1px dashed var(--line); display: grid; gap: 8px; }
+.gets dt { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.gets dd { margin: 2px 0 0; font-size: 0.92rem; font-weight: 500; }
 
 /* Cases */
-.cases { display: grid; gap: 0; }
-.case { display: grid; grid-template-columns: 220px 1fr 1fr 1fr; gap: 28px; padding-block: 28px; border-bottom: 1px solid var(--line); }
+.cases { display: grid; gap: 20px; }
+.case { display: grid; grid-template-columns: 230px 1fr; gap: 32px; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); }
 .case > * { min-width: 0; }
-.case:first-child { border-top: 1px solid var(--line); }
-.case .who b { display: block; font-family: var(--font-display); font-size: 1.1rem; }
-.case .who span { font-size: 0.88rem; color: var(--muted); }
-.case p { font-size: 0.96rem; }
-.case .result { font-weight: 600; }
+.kpi { border-right: 1px solid var(--line); padding-right: 24px; display: flex; flex-direction: column; gap: 6px; }
+.kpi b { font-family: var(--font-display); font-weight: 800; font-size: 3rem; line-height: 1; letter-spacing: -0.03em; color: var(--accent); font-variant-numeric: tabular-nums; }
+.kpi span { font-size: 0.92rem; color: var(--muted); }
+.case-body { display: grid; gap: 10px; }
+.case-body h3 { font-size: 1.35rem; }
+.cab { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 8px 0 0; }
+.cab > div { min-width: 0; }
+.cab dt { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.cab dd { margin: 0; font-size: 0.95rem; }
+.cab div:last-child dd { font-weight: 600; }
 
 /* Tooling */
 .tools { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 20px; }
@@ -180,8 +188,10 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
   .offers, .quotes, .tools { grid-template-columns: 1fr; }
   .proof { grid-template-columns: repeat(2, 1fr); }
   .proof div { border-left: 0; padding-left: 0; border-bottom: 1px solid var(--line); }
-  .steps { grid-template-columns: 1fr 1fr; gap: 28px 0; }
-  .case { grid-template-columns: 1fr; gap: 10px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .case { grid-template-columns: 1fr; gap: 18px; }
+  .kpi { border-right: 0; padding-right: 0; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+  .cab { grid-template-columns: 1fr; gap: 14px; }
 }
 @media (max-width: 560px) {
   .problems, .steps, .two { grid-template-columns: 1fr; }
@@ -289,46 +299,80 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
 
   <section id="how" aria-labelledby="how-h">
     <div class="sec-head">
-      <p class="label">How I work</p>
-      <h2 id="how-h">Four steps, in this order</h2>
+      <p class="label">The method</p>
+      <h2 id="how-h">Flow to Forecast: four steps from opaque delivery to dates you can plan around</h2>
+      <p class="lede">Each step ends with something your team keeps, and each one pays for itself before the next begins.</p>
     </div>
     <ol class="steps">
-      <li><div class="n">01</div><h3>Diagnose</h3><p>Sessions with the people who own the work. I map what actually happens, not what the process document says.</p></li>
-      <li><div class="n">02</div><h3>Make flow visible</h3><p>One board and a few metrics everyone can read: cycle time, throughput, work in progress.</p></li>
-      <li><div class="n">03</div><h3>Stabilise</h3><p>Limit work in progress, fix the worst handoffs, automate the status relay.</p></li>
-      <li><div class="n">04</div><h3>Hand off</h3><p>Your team owns the system. I leave the cadences, the dashboards and the documentation behind.</p></li>
+      <li class="step">
+        <div class="n">01</div>
+        <h3>Map the real flow</h3>
+        <p>Owner-led sessions and the data already in your tools show how work actually moves, including the handoffs nobody documented.</p>
+        <dl class="gets"><div><dt>You get</dt><dd>A map of the real workflow, request to release</dd></div><div><dt>Value</dt><dd>You see where work waits, in days, not opinions</dd></div></dl>
+      </li>
+      <li class="step">
+        <div class="n">02</div>
+        <h3>Measure</h3>
+        <p>Cycle time, throughput and work in progress, pulled from your Jira, Azure DevOps or Asana history.</p>
+        <dl class="gets"><div><dt>You get</dt><dd>A live flow metrics board and a baseline</dd></div><div><dt>Value</dt><dd>One shared picture for teams and leadership</dd></div></dl>
+      </li>
+      <li class="step">
+        <div class="n">03</div>
+        <h3>Fix the constraint</h3>
+        <p>Remove the biggest bottleneck first: limit work in progress, redesign the worst handoffs, set cadences people keep.</p>
+        <dl class="gets"><div><dt>You get</dt><dd>A 30-day plan, run together with your team</dd></div><div><dt>Value</dt><dd>More work finished with the same people</dd></div></dl>
+      </li>
+      <li class="step step-ai">
+        <div class="n">04 <span class="tag">AI-assisted</span></div>
+        <h3>Automate and forecast</h3>
+        <p>AI agents take over status relay and reporting. Delivery dates come from real throughput, as ranges with a stated confidence.</p>
+        <dl class="gets"><div><dt>You get</dt><dd>A live executive readout and delivery forecasts, handed over to your team</dd></div><div><dt>Value</dt><dd>Leaders plan on forecasts; managers get their week back</dd></div></dl>
+      </li>
     </ol>
   </section>
 
   <section id="cases" aria-labelledby="cases-h">
     <div class="sec-head">
-      <p class="label">Results</p>
-      <h2 id="cases-h">Selected work</h2>
+      <p class="label">Success cases</p>
+      <h2 id="cases-h">What changed for the teams I worked with</h2>
+      <p class="lede">Company names are left out; the numbers are real.</p>
     </div>
     <div class="cases">
       <article class="case">
-        <div class="who"><b>Auvo Tecnologia</b><span>Cloud ERP · Development Manager · 2020–2022</span></div>
-        <p><span class="label">Problem</span><br>Four squads with no shared view of flow. Capacity debates were settled by opinion.</p>
-        <p><span class="label">What I did</span><br>Built the company's first Lean metrics board in Azure DevOps, trained all four squads to use it, and ran the rollout of a core financial module.</p>
-        <p class="result"><span class="label">Result</span><br>+25% delivery capacity without adding headcount. The financial module went live without disrupting users.</p>
+        <div class="kpi"><b>+25%</b><span>delivery capacity with the same headcount</span></div>
+        <div class="case-body">
+          <p class="label">Cloud ERP software company · 4 product squads</p>
+          <h3>From capacity debates to flow data</h3>
+          <dl class="cab">
+            <div><dt>Challenge</dt><dd>Four squads with no shared view of flow. Capacity was argued by opinion, and a core financial module had to ship without disrupting customers.</dd></div>
+            <div><dt>Approach</dt><dd>A Lean metrics board (cycle time, lead time, throughput), squads trained to act on it, and an MVP-first rollout split into parallel workstreams.</dd></div>
+            <div><dt>Impact</dt><dd>25% more delivery capacity without hiring. The financial module went live without disrupting users.</dd></div>
+          </dl>
+        </div>
       </article>
       <article class="case">
-        <div class="who"><b>Liberdade Médica Educação</b><span>Education · Head of Portfolio (PMO) · 2026</span></div>
-        <p><span class="label">Problem</span><br>25+ active projects competing for approval and capacity, with business cases often sent back.</p>
-        <p><span class="label">What I did</span><br>Built a maturity scorecard for business cases and an approval process with pre-alignment and sign-off gates.</p>
-        <p class="result"><span class="label">Result</span><br>Less rework at approval, a shorter approval cycle, and live dashboards for directors.</p>
+        <div class="kpi"><b>25+</b><span>strategic projects steered in one portfolio</span></div>
+        <div class="case-body">
+          <p class="label">Medical education group · directors and a PMO team</p>
+          <h3>A portfolio leadership could actually steer</h3>
+          <dl class="cab">
+            <div><dt>Challenge</dt><dd>More than 25 projects competing for approval and capacity. Business cases were often sent back, and directors lacked a current view.</dd></div>
+            <div><dt>Approach</dt><dd>A maturity scorecard for business cases, an approval process with pre-alignment and sign-off gates, and live portfolio dashboards.</dd></div>
+            <div><dt>Impact</dt><dd>Less rework at approval, a shorter approval cycle, and real-time visibility for directors.</dd></div>
+          </dl>
+        </div>
       </article>
       <article class="case">
-        <div class="who"><b>Series B AI company</b><span>Via BairesDev · Process Intelligence · 2026</span></div>
-        <p><span class="label">Problem</span><br>The tracked state of work lived in Asana. The real state lived in Slack threads, retyped by hand every cycle.</p>
-        <p><span class="label">What I did</span><br>Mapped the cross-team lifecycle in BPMN with directors and leads, and built a sync agent that moves Slack updates onto the right task.</p>
-        <p class="result"><span class="label">Result</span><br>Status reporting became a rebuild instead of a rewrite, on a live executive readout.</p>
-      </article>
-      <article class="case">
-        <div class="who"><b>Softensity</b><span>Remote implementation projects · Agile PM · 2022–2025</span></div>
-        <p><span class="label">Problem</span><br>Client projects across US, European and LATAM time zones needing one accountable delivery contact.</p>
-        <p><span class="label">What I did</span><br>Ran Scrum and Kanban end to end, designed Jira workflows and automations, and sent weekly executive reports.</p>
-        <p class="result"><span class="label">Result</span><br>Primary contact for client sponsors over nearly three years of remote delivery.</p>
+        <div class="kpi"><b>Live</b><span>executive readout in place of hand-written status reports</span></div>
+        <div class="case-body">
+          <p class="label">Series B AI company · support, engineering and implementation teams</p>
+          <h3>Status reporting that rebuilds itself</h3>
+          <dl class="cab">
+            <div><dt>Challenge</dt><dd>The real state of work lived in Slack threads; the tracked state lived in Asana. Someone retyped one into the other every cycle.</dd></div>
+            <div><dt>Approach</dt><dd>Mapped the cross-team lifecycle with directors and leads, then built an AI agent that moves Slack updates onto the right task.</dd></div>
+            <div><dt>Impact</dt><dd>Reporting became a rebuild instead of a rewrite, and the gaps between documented and real process were made visible.</dd></div>
+          </dl>
+        </div>
       </article>
     </div>
   </section>
@@ -388,10 +432,9 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
         <p>My work sits where people, process and tooling meet. I make the real flow of work visible, change the system so it improves, and automate the reporting so leaders see the truth without asking for it. I also published research on how organisational culture shapes agile adoption.</p>
       </div>
       <div>
-        <figure class="portrait"><img src="portrait.jpg" alt="Portrait of Gerson Correia" width="128" height="128"><figcaption><b>Gerson Correia</b>Delivery consultant · Goiânia, Brazil</figcaption></figure>
+        <figure class="portrait"><img src="portrait.jpg" alt="Portrait of Gerson Correia" width="128" height="128"><figcaption><b>Gerson Correia</b>Delivery consultant · Brazil</figcaption></figure>
       <dl class="facts">
-        <div><dt>Based in</dt><dd>Goiânia, Brazil (UTC−3), working remotely</dd></div>
-        <div><dt>Languages</dt><dd>English (C1) · Portuguese (native)</dd></div>
+        <div><dt>Based in</dt><dd>Brazil (UTC−3), working remotely</dd></div>
         <div><dt>Certifications</dt><dd>Professional Scrum Master I · Kanban System Design (KMP I) · Management 3.0 · Anthropic: Agent Skills, MCP, Claude API</dd></div>
         <div><dt>Education</dt><dd>MBA, Leadership, Innovation and Management 3.0 (PUCRS) · BSc Information Systems (UFG)</dd></div>
         <div><dt>Tools</dt><dd>Jira · Azure DevOps · Asana · Monday · BPMN · Claude Code and MCP</dd></div>
@@ -407,8 +450,8 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
         <h2 id="contact-h" style="margin:10px 0 14px">What brings you here?</h2>
         <p class="lede">Pick the closest option. I'll help you write a short message so I can reply with something useful. I answer within one business day.</p>
         <div class="routes" role="group" aria-label="Reason for contact">
-          <button class="route" type="button" id="route-delivery" data-route="delivery" aria-pressed="true"><b>I need help with delivery</b><span>Book a 30-minute intro call</span></button>
-          <button class="route" type="button" id="route-hiring" data-route="hiring" aria-pressed="false"><b>I'm hiring for a role</b><span>Delivery Manager, Project Manager, Scrum Master</span></button>
+          <button class="route" type="button" id="route-delivery" data-route="delivery" aria-pressed="true"><b>Our delivery keeps slipping</b><span>Dates move, work piles up, nobody can say why</span></button>
+          <button class="route" type="button" id="route-automation" data-route="automation" aria-pressed="false"><b>Status work eats our week</b><span>Updates live in chat, tracking lives somewhere else</span></button>
           <button class="route" type="button" id="route-connect" data-route="connect" aria-pressed="false"><b>Let's connect</b><span>LinkedIn is easiest</span></button>
         </div>
         <table class="tz" aria-label="My working hours in other time zones">
@@ -419,19 +462,24 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
 
       <div class="panel" id="panel" aria-live="polite">
         <form id="f-delivery" data-form="delivery" novalidate>
-          <div class="field"><label for="d-name">Your name and company</label><input id="d-name" name="name" placeholder="Ana Silva, Acme Corp"></div>
+          <div class="field"><label for="d-problem">What is going wrong?</label><textarea id="d-problem" name="problem" placeholder="Releases slip every sprint and we can't see where the time goes."></textarea></div>
           <div class="two" style="margin-top:14px">
             <div class="field"><label for="d-size">Team size</label>
               <select id="d-size" name="size"><option value="">Choose…</option><option>Under 10 people</option><option>10–30 people</option><option>30–100 people</option><option>Over 100 people</option></select></div>
-            <div class="field"><label for="d-time">When do you want to start?</label>
-              <select id="d-time" name="time"><option value="">Choose…</option><option>As soon as possible</option><option>Within a month</option><option>In the next quarter</option><option>Just exploring</option></select></div>
+            <div class="field"><label for="d-time">How urgent is it?</label>
+              <select id="d-time" name="time"><option value="">Choose…</option><option>Urgent: it is hurting us now</option><option>Within the next month</option><option>This quarter</option><option>Exploring options</option></select></div>
           </div>
-          <div class="field" style="margin-top:14px"><label for="d-problem">What is the main problem?</label><textarea id="d-problem" name="problem" placeholder="Our releases slip every sprint and we can't see why."></textarea></div>
+          <div class="field" style="margin-top:14px"><label for="d-tried">What have you tried so far? (optional)</label><input id="d-tried" name="tried" placeholder="New sprint length, more stand-ups, a new tool"></div>
+          <div class="field" style="margin-top:14px"><label for="d-name">Your name and company</label><input id="d-name" name="name" placeholder="Ana Silva, Acme Corp"></div>
         </form>
-        <form id="f-hiring" data-form="hiring" novalidate hidden>
-          <div class="field"><label for="h-name">Your name and company</label><input id="h-name" name="name" placeholder="Ana Silva, Acme Corp"></div>
-          <div class="field" style="margin-top:14px"><label for="h-role">Role</label><input id="h-role" name="role" placeholder="Senior Delivery Manager, remote"></div>
-          <div class="field" style="margin-top:14px"><label for="h-link">Link to the job description (optional)</label><input id="h-link" name="link" placeholder="https://"></div>
+        <form id="f-automation" data-form="automation" novalidate hidden>
+          <div class="field"><label for="a-manual">What is done by hand today?</label><textarea id="a-manual" name="manual" placeholder="Every Friday two managers copy Slack updates into Jira and write the status report."></textarea></div>
+          <div class="two" style="margin-top:14px">
+            <div class="field"><label for="a-tools">Tools you use</label><input id="a-tools" name="tools" placeholder="Slack, Jira, Google Sheets"></div>
+            <div class="field"><label for="a-time">How urgent is it?</label>
+              <select id="a-time" name="time"><option value="">Choose…</option><option>Urgent: it is hurting us now</option><option>Within the next month</option><option>This quarter</option><option>Exploring options</option></select></div>
+          </div>
+          <div class="field" style="margin-top:14px"><label for="a-name">Your name and company</label><input id="a-name" name="name" placeholder="Ana Silva, Acme Corp"></div>
         </form>
         <div data-form="connect" hidden>
           <p>Send me a connection request with a line about what you work on.</p>
@@ -499,14 +547,14 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
   out += '<text x="' + (x(16)) + '" y="' + (y((started[16] + done[16]) / 2) + 4) + '" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#142230">steady</text>';
   svg.innerHTML = out;
 
-  // Working hours: 08:00–18:00 in Goiânia (America/Sao_Paulo, UTC−3, no DST)
+  // Working hours: 08:00–18:00 Brazil time (America/Sao_Paulo, UTC−3, no DST)
   var now = new Date();
   var startUtc = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 11, 0));
   var endUtc = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 21, 0));
   function fmt(d, tz) {
     try { return d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: tz }); } catch (e) { return ''; }
   }
-  var zones = [['Goiânia (my time)', 'America/Sao_Paulo'], ['New York', 'America/New_York'], ['London', 'Europe/London'], ['Lisbon', 'Europe/Lisbon'], ['Your time zone', undefined]];
+  var zones = [['Brazil (my time)', 'America/Sao_Paulo'], ['New York', 'America/New_York'], ['London', 'Europe/London'], ['Lisbon', 'Europe/Lisbon'], ['Your time zone', undefined]];
   var rows = '';
   zones.forEach(function (z) {
     var a1 = fmt(startUtc, z[1]), b1 = fmt(endUtc, z[1]);
@@ -522,22 +570,26 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
   var status = document.getElementById('status');
   function val(id) { var el = document.getElementById(id); return el && el.value.trim(); }
   function build() {
-    var subj, body;
+    var subj, body, sign;
     if (route === 'delivery') {
-      subj = 'Intro call: delivery help';
-      body = 'Hi Gerson,\n\nI\'d like to book a 30-minute intro call.\n\n' +
-        'Who: ' + (val('d-name') || '[your name and company]') + '\n' +
+      sign = val('d-name');
+      subj = 'Delivery problem we need to solve' + (sign ? ' (' + sign + ')' : '');
+      body = 'Hi Gerson,\n\nWe have a delivery problem we need to solve.\n\n' +
+        'What is going wrong: ' + (val('d-problem') || '[describe the problem]') + '\n' +
         'Team size: ' + (val('d-size') || '[team size]') + '\n' +
-        'Timeline: ' + (val('d-time') || '[when you want to start]') + '\n' +
-        'Main problem: ' + (val('d-problem') || '[what is going wrong]') + '\n\n' +
-        'A few times that work for me: [2–3 options with time zone]\n';
+        'What we have tried: ' + (val('d-tried') || '[what you tried so far]') + '\n' +
+        'How urgent: ' + (val('d-time') || '[how urgent]') + '\n\n' +
+        'Could we have a 30-minute call to see how you would approach it? Times that work for me: [2–3 options with time zone]\n\n' +
+        (sign || '[your name, company]') + '\n';
     } else {
-      subj = 'Role: ' + (val('h-role') || 'delivery position');
-      body = 'Hi Gerson,\n\nI\'m hiring and your profile looks like a fit.\n\n' +
-        'Who: ' + (val('h-name') || '[your name and company]') + '\n' +
-        'Role: ' + (val('h-role') || '[role title]') + '\n' +
-        'Job description: ' + (val('h-link') || '[link]') + '\n\n' +
-        'Could you send me your CV?\n';
+      sign = val('a-name');
+      subj = 'Too much manual status work' + (sign ? ' (' + sign + ')' : '');
+      body = 'Hi Gerson,\n\nOur team loses too much time on manual status and reporting work, and we want to fix it.\n\n' +
+        'Done by hand today: ' + (val('a-manual') || '[what is done by hand]') + '\n' +
+        'Tools we use: ' + (val('a-tools') || '[tools]') + '\n' +
+        'How urgent: ' + (val('a-time') || '[how urgent]') + '\n\n' +
+        'Could we have a 30-minute call to see what could be automated? Times that work for me: [2–3 options with time zone]\n\n' +
+        (sign || '[your name, company]') + '\n';
     }
     draft.textContent = 'Subject: ' + subj + '\n\n' + body;
     document.getElementById('mailto').href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
