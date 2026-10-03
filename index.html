@@ -218,7 +218,7 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
       <h1 style="margin-top:14px">Software delivery your leadership can <em>predict</em>.</h1>
       <p class="lede">I find where work really waits, fix the flow, and automate the status reporting that eats your managers' week. Former engineer, 10+ years leading delivery, and I build the tooling myself.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#contact" data-route="delivery">Book an intro call</a>
+        <a class="btn btn-primary" href="https://calendly.com/diersonjc/30min" target="_blank" rel="noopener" data-event="hero_book_click">Book a 30-minute call</a>
         <a class="btn btn-ghost" href="#offers">See the services</a>
       </div>
     </div>
@@ -448,7 +448,8 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
       <div>
         <p class="label">Contact</p>
         <h2 id="contact-h" style="margin:10px 0 14px">What brings you here?</h2>
-        <p class="lede">Pick the closest option. I'll help you write a short message so I can reply with something useful. I answer within one business day.</p>
+        <p class="lede">The fastest way is to pick a time for a 30-minute call. If you prefer to write first, choose the closest option below and I'll help you draft a short message. I answer within one business day.</p>
+        <p style="margin-top:18px"><a class="btn btn-primary" href="https://calendly.com/diersonjc/30min" target="_blank" rel="noopener" data-event="contact_book_click">Book a 30-minute call</a></p>
         <div class="routes" role="group" aria-label="Reason for contact">
           <button class="route" type="button" id="route-delivery" data-route="delivery" aria-pressed="true"><b>Our delivery keeps slipping</b><span>Dates move, work piles up, nobody can say why</span></button>
           <button class="route" type="button" id="route-automation" data-route="automation" aria-pressed="false"><b>Status work eats our week</b><span>Updates live in chat, tracking lives somewhere else</span></button>
@@ -489,11 +490,11 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
         <div id="compose">
           <p class="label" style="margin-bottom:8px">Your message</p>
           <div class="draft" id="draft"></div>
-          <p style="margin-top:14px;font-size:0.92rem">Send it to <span class="email" id="email">empiricusd@gmail.com</span></p>
+          <p style="margin-top:14px;font-size:0.92rem">Send it to <span class="email" id="email">hello@gersoncorreia.com</span></p>
           <div class="row" style="margin-top:12px">
             <button class="btn btn-primary" type="button" id="copy-msg">Copy message</button>
             <button class="btn btn-ghost" type="button" id="copy-email">Copy email address</button>
-            <a class="btn btn-ghost" id="mailto" href="mailto:empiricusd@gmail.com">Open in email app</a>
+            <a class="btn btn-ghost" id="mailto" href="mailto:hello@gersoncorreia.com">Open in email app</a>
           </div>
           <p class="status" id="status" role="status"></p>
         </div>
@@ -564,7 +565,7 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
 
   // Contact routes and message composer
   var route = 'delivery';
-  var EMAIL = 'empiricusd@gmail.com';
+  var EMAIL = 'hello@gersoncorreia.com';
   var draft = document.getElementById('draft');
   var compose = document.getElementById('compose');
   var status = document.getElementById('status');
