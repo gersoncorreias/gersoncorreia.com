@@ -139,7 +139,16 @@ section { padding-block: 72px; border-top: 1px solid var(--line); }
 .cab div:last-child dd { font-weight: 600; }
 
 /* Tooling */
-.tools { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 20px; }
+.tools { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.tool-feature { display: grid; grid-template-columns: 1fr 1.35fr; gap: 32px; align-items: center; padding: 28px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); margin-bottom: 20px; }
+.tool-feature > * { min-width: 0; }
+.tool-feature .tool-copy { display: grid; gap: 12px; align-content: start; }
+.tool-feature ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; font-size: 0.95rem; }
+.tool-feature code { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); overflow-wrap: anywhere; }
+.tool-feature figure { margin: 0; }
+.tool-feature img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--line); background: #fff; }
+.tool-feature figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
+.tool-links { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
 .tool { padding: 24px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); display: grid; gap: 10px; align-content: start; min-width: 0; }
 .tool code { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); overflow-wrap: anywhere; }
 
@@ -185,7 +194,7 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
 
 @media (max-width: 920px) {
   .hero, .about, .contact { grid-template-columns: 1fr; }
-  .offers, .quotes, .tools { grid-template-columns: 1fr; }
+  .offers, .quotes, .tools, .tool-feature { grid-template-columns: 1fr; }
   .proof { grid-template-columns: repeat(2, 1fr); }
   .proof div { border-left: 0; padding-left: 0; border-bottom: 1px solid var(--line); }
   .steps { grid-template-columns: 1fr 1fr; }
@@ -286,7 +295,7 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
         <h3>Status on Autopilot</h3>
         <p>Stop writing status reports by hand. Your tools write them.</p>
         <ul>
-          <li>The real process mapped in BPMN, handoffs included</li>
+          <li>The real process mapped in BPMN from your own sessions, handoffs included (<a href="#process-mapping">see how</a>)</li>
           <li>Status updates flowing from Slack into Asana or Jira</li>
           <li>A live executive readout instead of a weekly document</li>
           <li>Built with Claude Code and MCP, documented for your team</li>
@@ -307,7 +316,7 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
       <li class="step">
         <div class="n">01</div>
         <h3>Map the real flow</h3>
-        <p>Owner-led sessions and the data already in your tools show how work actually moves, including the handoffs nobody documented.</p>
+        <p>Owner-led sessions and the data already in your tools show how work actually moves, including the handoffs nobody documented. Session transcripts become a BPMN draft with a quote behind every step (<a href="#process-mapping">how</a>).</p>
         <dl class="gets"><div><dt>You get</dt><dd>A map of the real workflow, request to release</dd></div><div><dt>Value</dt><dd>You see where work waits, in days, not opinions</dd></div></dl>
       </li>
       <li class="step">
@@ -383,6 +392,28 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
       <h2 id="tools-h">I automate the work around the work</h2>
       <p class="lede">Most delivery leads report on the problem. I also build the tools that remove it.</p>
     </div>
+    <article class="tool-feature" id="process-mapping">
+      <div class="tool-copy">
+        <span class="chip" style="justify-self:start">Open source · new</span>
+        <h3>From mapping session to process map</h3>
+        <p>I record the process-mapping session and give the transcript to an AI agent I built. It drafts the BPMN diagram for me to review:</p>
+        <ul>
+          <li>Every step links to the quote it came from.</li>
+          <li>When two people disagree, it shows both answers.</li>
+          <li>When nobody knows a step, it leaves it open instead of guessing.</li>
+        </ul>
+        <p>So the follow-up starts from a draft the process owner can check line by line, not from a blank page.</p>
+        <div class="tool-links">
+          <a href="https://github.com/gersoncorreias/claude-bpmn" data-event="tool_bpmn_click">View on GitHub</a>
+          <a href="https://github.com/gersoncorreias/claude-bpmn/tree/main/examples/transcript-to-bpmn" data-event="tool_bpmn_example_click">See the worked example</a>
+        </div>
+        <code>github.com/gersoncorreias/claude-bpmn</code>
+      </div>
+      <figure>
+        <a href="https://github.com/gersoncorreias/claude-bpmn/blob/main/docs/images/transcript-customer-refund.png" data-event="tool_bpmn_image_click"><img src="img/transcript-to-bpmn.webp" width="2100" height="768" loading="lazy" decoding="async" alt="BPMN diagram of a customer refund process drafted from a meeting transcript: lanes for Support Agent, Support Lead and Finance, decisions for refund policy and approval limit, an open path where the lead's rejection was never agreed, and a timer for the twice-weekly refund run."></a>
+        <figcaption>Drafted from a three-minute fictional session. The open end on the lead's lane is a question for the process owner, not a guess.</figcaption>
+      </figure>
+    </article>
     <div class="tools">
       <article class="tool">
         <span class="chip" style="justify-self:start">Open source</span>
@@ -394,10 +425,6 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); font-size:
       <article class="tool">
         <h3>Coordination-cost analyzer</h3>
         <p>Turns the relay work between teams into hours and cost, so leaders see what handoffs really cost them.</p>
-      </article>
-      <article class="tool">
-        <h3>BPMN toolchain</h3>
-        <p>Generates, reads and validates BPMN 2.0 process diagrams, so process maps stay accurate as the process changes.</p>
       </article>
     </div>
   </section>
